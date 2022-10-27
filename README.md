@@ -1,6 +1,8 @@
 # Getting Started with Authentication V2 for Refinitiv Real-Time: Overview
-- version: Beta
+- version: Draft
 - Last update: October 2022
+
+**Note**: This is a draft version for the public articles on the Developer Portal. For internal use documents, please check the [Article.RTO.AuthenticationV2.Internal](https://github.com/Refinitiv-API-Samples/Article.RTO.AuthenticationV2.Internal) repository. 
 
 ## Introduction
 
