@@ -227,6 +227,15 @@ The EMA API supports Authentication V2 since the API version **3.6.5.0** (RTSDK 
 * ```ex113_MP_SessionMgmt``` (both V1 and V2), ```ex450_MP_QueryServiceDiscovery``` (both V1 and V2), and ```ex451_MP_OAuth2Callback_V2``` (V2 only) examples of EMA Java API
 * ```Cons113``` (both V1 and V2), ```Cons450``` (both V1 and V2), and  ```Cons451``` (V2 only) examples of EMA C/C++ API. 
 
+The EMA API automatically operates the HTTP and streaming connections workflow for the application. However, developers need to pass the V2 client_id and client_secret credentials to the API, and use newly introduce methods/interfaces for Authentication V2.
+
+Once connected to the Refinitiv Real-Time Optimized ADS, there is no need to renew the Access Token. The login session to the ADS will remain valid until the consumer disconnects or is disconnected from RTO. The API will only re-request an Access Token in the following scenarios:
+- When the consumer disconnects and goes into a reconnection state.
+- If the Channel stays in reconnection long enough to get close to the expiry time of the Access Token.
+Due to the above changes, credentials are managed independently per reactor channel. Channels do not share credentials.
+
+The rest of the code logic is the same.
+
 ## <a id="references"></a>References
 
 For further details, please check out the following resources:
