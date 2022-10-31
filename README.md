@@ -294,6 +294,12 @@ Examples RTO RSSL Hosts are as follows (based on each user's permission):
 
 That covers the RTSDK quick start with the Authentication V2.
 
+## <a id="v2_ws"></a>How to use with the WebSocket API with Authentication V2
+
+The [Websocket API for Pricing Streaming and Real-Time Services](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api) (aka WebSocket API) supports the Authentication V2. However, the WebSocket API developers need to operate the Authentication V2 HTTP and streaming connections workflow manually. 
+
+
+
 ## <a id="references"></a>References
 
 For further details, please check out the following resources:
