@@ -229,25 +229,24 @@ This article is based on RTSDK version 2.0.7.L1 (EMA/ETA API version 3.6.7).
 
 ### <a id="v2_ema"></a>EMA API
 
-The EMA API supports Authentication V2 since the API version **3.6.5.0** (RTSDK version **2.0.5**). The demo and example code is available in the following EMA example applications:
+The Enterprise Message API (EMA API) supports Authentication V2 since the API version **3.6.5.0** (RTSDK version **2.0.5**). The demo and example code is available in the following EMA example applications:
 * ```ex113_MP_SessionMgmt``` (both V1 and V2), ```ex450_MP_QueryServiceDiscovery``` (both V1 and V2), and ```ex451_MP_OAuth2Callback_V2``` (V2 only) examples of EMA Java API
 * ```Cons113``` (both V1 and V2), ```Cons450``` (both V1 and V2), and  ```Cons451``` (V2 only) examples of EMA C/C++ API. 
 
-The EMA API automatically operates the HTTP and streaming connections workflow for the application. However, developers need to pass the V2 client_id and client_secret credentials to the API, and use newly introduce methods/interfaces for Authentication V2.
+The EMA API automatically operates the HTTP and streaming connections workflow for the application. However, developers need to pass the V2 client_id and client_secret credentials to the API, and use newly introduced Authentication V2 methods/interfaces for connecting to the RTO.
 
-The rest of the code logic is the same.
+The rest of the code logic such as subscription logic, incoming messages callbacks, etc is the same.
 
 For more detail about using the Authentication V2 with the Enterprise Message API, please check the upcoming *Getting Started with Authentication V2 using Enterprise Message API* article (TBD).
 
 #### EMA API Authentication V2 - Quick Start
 
-My next point is the EMA examples quick start. This article is demonstrating with the ```ex450_MP_QueryServiceDiscovery``` and ```Cons450``` examples.
+My next point is the EMA examples quick start. This article is demonstrating with the ```ex450_MP_QueryServiceDiscovery``` (Java) and ```Cons450``` (C/C++) examples.
 
 EMA Java ```ex450_MP_QueryServiceDiscovery```:
 ``` Bash
 $>gradlew.bat runconsumer450 --args="-clientId <ClientID> -clientSecret <ClientSecret> -itemName <RIC name>"
 ```
-
 ![figure-4](images/04_emaj_450_run_result.gif "EMA Java example 450 result")
 
 EMA C/C++ ```Cons450```:
@@ -255,7 +254,45 @@ EMA C/C++ ```Cons450```:
 $>Cons450 -clientId <ClientID> -clientSecret <ClientSecret> -itemName <RIC name>
 ```
 
-![figure-5](images/05_emacpp_450_run_result.gif)
+![figure-5](images/05_emacpp_450_run_result.gif "EMA C/C++ example 450 result")
+
+### <a id="v2_eta"></a>ETA API
+
+Now, what about the Enterprise Transport API. The Enterprise Transport API (ETA API) ValueAdd supports Authentication V2 since the API version **3.6.5.0** (RTSDK version **2.0.5**). The demo and example code is available in the following EMA example applications:
+* ```ValueAdd - Consumer``` (both V1 and V2) and ```ValueAdd - WatchlistConsumer``` (both V1 and V2) examples of ETA ValueAdd Java API.
+* ```VaConsumer``` (both V1 and V2) and  ```WatchlistConsumer``` (both V1 and V2) examples of ETA ValueAdd C API.
+
+ETA developers need to pass the V2 client_id and client_secret credentials to the API with newly introduced Authentication V2 methods/interfaces for connecting to the RTO.
+
+The rest of the code logic such as subscription logic, incoming messages callbacks, etc is the same.
+
+For more detail about using the Authentication V2 with the Enterprise Transport API, please check the upcoming *Getting Started with Authentication V2 using Enterprise Transport API* article (TBD).
+
+#### EMA API Authentication V2 - Quick Start
+
+My next point is the ETA examples quick start. This article is demonstrating with the ```ValueAdd WatchListConsumer``` for Java and C/C++ examples.
+
+ETA ValueAdd Java ```ValueAdd Consumer```:
+``` Bash
+$>gradlew.bat runVAConsumer --args="-c <RTO ADS Host>:<14002/443> ELEKTRON_DD mp:EUR= -clientId <ClientID> -clientSecret <ClientSecret> -connectionType encrypted -sessionMgnt"
+```
+Examples RTO RSSL Hosts are as follows (based on each user's permission):
+- ap-northeast-1-aws-3-sm.optimized-pricing-api.refinitiv.net
+- us-east-1-aws-3-sm.optimized-pricing-api.refinitiv.net
+
+![figure-6](images/06_etaj_run_result.gif "ETA Java ValueAdd Consumer result")
+
+ETA ValueAdd C ```ValueAdd Consumer```:
+``` Bash
+$>VAConsumer -encryptedSocket <RTO ADS Host>:<14002/443> ELEKTRON_DD mp:/THB= -clientId <ClientID> -clientSecret <ClientSecret> -sessionMgnt
+```
+Examples RTO RSSL Hosts are as follows (based on each user's permission):
+- ap-northeast-1-aws-3-sm.optimized-pricing-api.refinitiv.net
+- us-east-1-aws-3-sm.optimized-pricing-api.refinitiv.net
+
+![figure-7](images/07_etac_run_result.gif "ETA Java ValueAdd Consumer result")
+
+That covers the RTSDK quick start with the Authentication V2.
 
 ## <a id="references"></a>References
 
