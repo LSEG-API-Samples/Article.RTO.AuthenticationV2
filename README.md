@@ -204,6 +204,12 @@ Summary:
 
 ![figure-3](images/03_auth_v2_streaming.png "Authentication V2 Streaming Workflow")
 
+### Comparing with the Authentication V1
+
+Unlike the V2, the Authentication V1 needs to re-authentication the RDP Authentication Service version 1 (HTTP REST) before the token is expired. And then re-issue a OMM Login request message (RSSL/WebSocket) with a new access token to keep the streaming channel open.
+
+If you are using the Refinitiv Real-Time SDK, the API automatically handles this token renewal process for you. However, the Authentication V2 streaming workflow is much simpler for the WebSocket API developers because application does not need to re-new access token as long as it's streaming channel is active.
+
 That covers the Real-Time Streaming connection overview with the RDP Authentication Service version 2.
 
 ## <a id="prerequisite"></a>Prerequisite
@@ -217,7 +223,7 @@ Please contact your Refinitiv representative to help you to access the RTO accou
 
 ## <a id="v2_rtsdk"></a>How to use Authentication V2 with Refinitiv Real-Time SDK
 
-Now let me turn to using the Authentication V2 with the Refinitiv Real-Time SDK developers. The Refinitiv Real-Time SDK (RTSDK) [C/C++](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-cc) and [Java](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-java) editions already support the Authentication V2 since version 2.0.5 (EMA/ETA API version 3.6.5). 
+Now let me turn to using the Authentication V2 with the Refinitiv Real-Time SDK (RTSDK) developers. The RTSDK [C/C++](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-cc) and [Java](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-java) editions already support the Authentication V2 since version 2.0.5 (EMA/ETA API version 3.6.5). 
 
 This article is based on RTSDK version 2.0.7.L1 (EMA/ETA API version 3.6.7).
 
@@ -229,12 +235,27 @@ The EMA API supports Authentication V2 since the API version **3.6.5.0** (RTSDK 
 
 The EMA API automatically operates the HTTP and streaming connections workflow for the application. However, developers need to pass the V2 client_id and client_secret credentials to the API, and use newly introduce methods/interfaces for Authentication V2.
 
-Once connected to the Refinitiv Real-Time Optimized ADS, there is no need to renew the Access Token. The login session to the ADS will remain valid until the consumer disconnects or is disconnected from RTO. The API will only re-request an Access Token in the following scenarios:
-- When the consumer disconnects and goes into a reconnection state.
-- If the Channel stays in reconnection long enough to get close to the expiry time of the Access Token.
-Due to the above changes, credentials are managed independently per reactor channel. Channels do not share credentials.
-
 The rest of the code logic is the same.
+
+For more detail about using the Authentication V2 with the Enterprise Message API, please check the upcoming *Getting Started with Authentication V2 using Enterprise Message API* article (TBD).
+
+#### EMA API Authentication V2 - Quick Start
+
+My next point is the EMA examples quick start. This article is demonstrating with the ```ex450_MP_QueryServiceDiscovery``` and ```Cons450``` examples.
+
+EMA Java ```ex450_MP_QueryServiceDiscovery```:
+``` Bash
+$>gradlew.bat runconsumer450 --args="-clientId <ClientID> -clientSecret <ClientSecret> -itemName <RIC name>"
+```
+
+![figure-4](images/04_emaj_450_run_result.gif "EMA Java example 450 result")
+
+EMA C/C++ ```Cons450```:
+``` Bash
+$>Cons450 -clientId <ClientID> -clientSecret <ClientSecret> -itemName <RIC name>
+```
+
+![figure-5](images/05_emacpp_450_run_result.gif)
 
 ## <a id="references"></a>References
 
