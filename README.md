@@ -63,7 +63,7 @@ That’s all I have to say about the basics of the Client Credentials Model gran
 6. Authentication V2 produces a single Access Token. 
 
 ## <a id="v2_benefits"></a>Authentication V2 Benefits Over V1
-1. Longer Access Token time (V1's 10 minutes vs V2's 120 minutes).
+1. Longer Access Token expiration time (V1's 10 minutes vs V2's 120 minutes).
 2. Authentication V2 produces a single Access Token, easy to manage.
 3. Simplify an Access Token renewal process
 4. The application/API does not need to renew an Access Token (HTTP/RSSL-WebSocket) as long as the streaming channel (WebSocket/RSSL) is active, even if that session time passes the expires_in period. The consumer application only need re-request an Access Token in the following scenarios:
@@ -204,11 +204,11 @@ Summary:
 
 ![figure-3](images/03_auth_v2_streaming.png "Authentication V2 Streaming Workflow")
 
+If you are using the Refinitiv Real-Time SDK, the API automatically handles this token renewal process for you. However, the Authentication V2 streaming workflow is much simpler for WebSocket API developers because the application does not need to renew the access token as long as its streaming channel is active.
+
 ### Comparing with the Authentication V1
 
 Unlike the V2, the Authentication V1 needs to re-authentication the RDP Authentication Service version 1 (HTTP REST) before the token is expired. And then re-issue an OMM Login request message (RSSL/WebSocket) with a new access token to keep the streaming channel open.
-
-If you are using the Refinitiv Real-Time SDK, the API automatically handles this token renewal process for you. However, the Authentication V2 streaming workflow is much simpler for WebSocket API developers because the application does not need to renew the access token as long as its streaming channel is active.
 
 That covers the Real-Time Streaming connection overview with the RDP Authentication Service version 2.
 
@@ -306,7 +306,7 @@ Please note that the main Authentication V2 workflow's concept is the same for a
 
 The rest of the code logic such as subscription logic, incoming message callbacks, ping-pong messages, etc is the same.
 
-For more detail about using the Authentication V2 with the WebSocket API, please check the upcoming Getting Started with Authentication V2 using WebSocket API* article (TBD).
+For more detail about using the Authentication V2 with the WebSocket API, please check the upcoming *Getting Started with Authentication V2 using WebSocket API* article (TBD).
 
 #### WebSocket API Authentication V2 - Quick Start
 
@@ -353,7 +353,14 @@ That’s all I have to say about the WebSocket API quick start with the Authenti
 
 ## <a id="conclusion"></a>Conclusion and Next Steps
 
-TBD
+That brings me to the end of this article. The RDP Authentication Service version 2 brings a lot of improvements to the Refinitiv Real-Time - Optimized (RTO) applications. The V2 simplifies the overall authentication process with a single access token and a long token expiration time. The major advantage for real-time users is the application/API does not need to renew the access token as long as the streaming connection is active.
+
+If you are the Refinitiv Real-Time SDK developer, the API automatically handles the new workflow for you. You just need to update the application source code to use newly introduced Authentication V2 methods/interfaces for connecting to the RTO with the V2 client_id and client_secret credential. Please see more detail about using the RTSDK with the Authentication V2 from the following resources:
+- *Getting Started with Authentication V2 using Enterprise Message API* article (TBD)
+- *Getting Started with Authentication V2 using Enterprise Transport API* article (TBD)
+
+If you are the WebSocket API developer, even though you need to manually update the application source code to use new V2 HTTP and WebSocket connections, the V2 workflow is simple to operate when compared to the Authentication V1.  Please see more detail about using the WebSocket API with the Authentication V2 from the following resource:
+- *Getting Started with Authentication V2 using WebSocket API* article (TBD)
 
 ## <a id="references"></a>References
 
