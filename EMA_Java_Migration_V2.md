@@ -12,6 +12,8 @@ The RTO utilizes the RDP authentication service to obtain Access Token informati
 
 For more detail about the Authentication V2 overview and concept, please check this [Getting Started with Authentication V2](https://github.com/Refinitiv-API-Samples/Article.RTO.AuthenticationV2) document.
 
+This article is based on RTSDK Java version 2.0.7.L1 (EMA/ETA API version 3.6.7).
+
 ## RDP Authentication Service version 2 Summaries
 
 The RDP Authentication Service version 2 (or simply V2) is based on the [OAuth 2.0 - Client Credentials model](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) model. The Authentication V2 simplifies the usage of access tokens. The V2 2 will only generate an access token, not both access and refresh tokens. Once connected to the Refinitiv Real-Time Optimized with an access token, there is no need to renew the access Token. The login session will remain valid until the application disconnects or is disconnected from RTO.
@@ -40,11 +42,16 @@ The Authentication V2 requires the following dependencies.
 
 Please contact your Refinitiv representative to help you to access the RTO account and services. 
 
-## How to use Authentication V2 with Refinitiv Real-Time SDK
+## RDP Authentication Version 2 Refinitiv Real-Time SDK Java Code Migration 
 
 The Refinitiv Real-Time SDK (RTSDK) [C/C++](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-cc) and [Java](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-java) editions already support the Authentication V2 since version 2.0.5 (EMA/ETA API version 3.6.5). 
 
-This article is based on RTSDK Java version 2.0.7.L1 (EMA/ETA API version 3.6.7).
+The EMA Java API automatically operates the RTO HTTP and streaming connections workflow for the application. However, developers need to pass the V2 client_id and client_secret credentials to the API, and use newly introduced Authentication V2 methods/interfaces for connecting to the RTO. The following parts in the code must be modified to migrate the EMA Java applications to use RDP authentication version 2.
+
+### 1. Setting RDP authentication version 2 credentials to the API
+
+TBD
+
 
 ## <a id="references"></a>References
 
