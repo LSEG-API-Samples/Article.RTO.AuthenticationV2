@@ -6,7 +6,7 @@ To connect to Refinitiv Real-Time Optimized, Refinitiv Real-Time applications ne
 
 Fortunately, the new RDP authentication version 2 simplifies the usage of access tokens. RDP authentication version 2 will only generate an access token, not both access and refresh tokens. Once connected to the Refinitiv Real-Time Optimized with an access token, there is no need to renew the access Token. The login session will remain valid until the application disconnects or is disconnected from RTO.
 
-This article provides guidelines to migrate the ETA C consumer applications to use RDP authentication version 2. 
+This article provides guidelines to migrate the ETA C consumer applications to use RDP authentication version 2. RTSDK 2.0.5.L1 (ETA 3.6.5.L1) and above support RDP authentication version 2.
 
 ## RDP Authentication Version 2 Code Migration
 
