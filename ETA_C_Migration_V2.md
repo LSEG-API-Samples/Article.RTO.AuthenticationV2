@@ -189,7 +189,7 @@ RsslBuffer tokenURLV2 = RSSL_INIT_BUFFER;
 RsslCreateReactorOptions	reactorOpts;
 rsslClearCreateReactorOptions(&reactorOpts); 
 ...
-tokenURLV2.data = "<RDP Authenticaion V2 Endpoint>";
+tokenURLV2.data = "<RDP Authentication V2 Endpoint>";
 tokenURLV2.length = strlen(tokenURLV2.data); 
 reactorOpts.tokenServiceURL_V2 = tokenURLV2;
 ...
