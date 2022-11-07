@@ -16,7 +16,7 @@ ETA Java applications use the Enterprise Transport API reactor to connect to Ref
 
 RDP authentication version 2 oAuth Client Credentials requires a client ID and client secret instead of a username, password, and client ID. The client ID and client secret are set in the **ReactorOAuthCredential ** instance. 
 
-![](etaj_reactoroauthcred.png)
+![](images/etaj_reactoroauthcred.png)
 
 The code must be modified to use the client ID and client secret, as shown below.
 
@@ -33,7 +33,7 @@ Note: The *userName*, *password*, and *takeExclusiveSignOnControl* properties ar
 
 Then, the **ReactorOAuthCredential** is assigned to the *reactorOAuthCredential in the **ConsumerRole**.
 
-![](etaj_consumerrole.png)
+![](images/etaj_consumerrole.png)
 
 ### 2.	Setting RDP authentication version 2 credentials in the service discovery
 
@@ -41,7 +41,7 @@ If the application uses the service discovery, this modification is required.
 
 The service discovery is used to query service endpoints from the Refinitiv Real-Time Optimized service. It also requires RDP credentials to connect to the service discovery endpoint. To migrate to RDP authentication version 2, the client ID and client secret must be set in the **ReactorServiceDiscoveryOptions** instance. 
 
-![](etaj_servicedis.png)
+![](images/etaj_servicedis.png)
 
 The code must be modified to use the client ID and client secret, as shown below.
 
@@ -70,7 +70,7 @@ If the application uses the OAuth credential event callback function, this modif
 
 If *reactorOAuthCredentialEventCallback* is specified in the **ReactorOAuthCredential**, the Value Added Components Reactor does not store the password or clientSecret. In this case, the application must supply the password or clientSecret whenever the OAuth credential event callback function is invoked. 
 
-![](etaj_reactoroauthcred1.png)
+![](images/etaj_reactoroauthcred1.png)
 
 
 In the callback function, the client secret is set in the **ReactorOAuthCredentialRenewal** instance and then is passed to the **submitOAuthCredentialRenewal** method of the Reactor. 
@@ -96,7 +96,7 @@ If the application changes the endpoint of the RDP authentication service, this 
 
 By default, the endpoint of the RDP authentication version 2 is https://api.refinitiv.com/auth/oauth2/v2/token. However, this can be overridden by specifying another endpoint in the *tokenServiceURL_V2* property of the **ReactorOptions** instance. 
 
-![](etaj_reactoroptions.png)
+![](images/etaj_reactoroptions.png)
 
 The RDP authentication version 2 endpoint can be changed via the following code.
 

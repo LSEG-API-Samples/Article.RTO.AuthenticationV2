@@ -266,7 +266,9 @@ ETA developers need to pass the V2 client_id and client_secret credentials to th
 
 The rest of the code logic such as subscription logic, incoming message callbacks, etc is the same.
 
-For more detail about using the Authentication V2 with the Enterprise Transport API, please check the upcoming *Getting Started with Authentication V2 using Enterprise Transport API* article (TBD).
+For more detail about using the Authentication V2 with the Enterprise Transport API, please check the following ETA articles 
+* [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md)
+* [ETA Java: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_Java_Migration_V2.md)
 
 #### ETA API Authentication V2 - Quick Start
 
