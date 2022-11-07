@@ -237,7 +237,10 @@ The EMA API automatically operates the HTTP and streaming connections workflow f
 
 The rest of the code logic such as subscription logic, incoming message callbacks, etc is the same.
 
-For more detail about using the Authentication V2 with the Enterprise Message API, please check the upcoming *Getting Started with Authentication V2 using Enterprise Message API* article (TBD).
+For more detail about using the Authentication V2 with the Enterprise Message API, please check the following documents:
+upcoming *Getting Started with Authentication V2 using Enterprise Message API* article (TBD).
+* [Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message Java API](./ETA_Java_Migration_V2.md)
+* Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message C/C++ API (TBD)
 
 #### EMA API Authentication V2 - Quick Start
 
@@ -371,6 +374,10 @@ For further details, please check out the following resources:
 * [Refinitiv Real-Time SDK C/C++ page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-cc) on the [Refinitiv Developer Community](https://developers.refinitiv.com/) website.
 * [Refinitiv Real-Time SDK Java page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-java).
 * [Refinitiv WebSocket API page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api).
+* [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md)
+* [ETA Java: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_Java_Migration_V2.md)
+* [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md)
+* [Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message Java API](./ETA_Java_Migration_V2.md)
 * [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) page.
 * [OAuth 2.0 - Access Token Response](https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/) page.
 * [OAuth 2.0 - Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) page.
