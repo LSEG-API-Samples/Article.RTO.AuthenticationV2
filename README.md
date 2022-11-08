@@ -376,7 +376,6 @@ For further details, please check out the following resources:
 * [Refinitiv WebSocket API page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api).
 * [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md)
 * [ETA Java: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_Java_Migration_V2.md)
-* [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md)
 * [Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message Java API](./ETA_Java_Migration_V2.md)
 * [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) page.
 * [OAuth 2.0 - Access Token Response](https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/) page.
