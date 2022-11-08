@@ -361,8 +361,10 @@ That’s all I have to say about the WebSocket API quick start with the Authenti
 That brings me to the end of this article. The RDP Authentication Service version 2 brings a lot of improvements to the Refinitiv Real-Time - Optimized (RTO) applications. The V2 simplifies the overall authentication process with a single access token and a long token expiration time. The major advantage for real-time users is the application/API does not need to renew the access token as long as the streaming connection is active.
 
 If you are the Refinitiv Real-Time SDK developer, the API automatically handles the new workflow for you. You just need to update the application source code to use newly introduced Authentication V2 methods/interfaces for connecting to the RTO with the V2 client_id and client_secret credential. Please see more detail about using the RTSDK with the Authentication V2 from the following resources:
-- *Getting Started with Authentication V2 using Enterprise Message API* article (TBD)
-- *Getting Started with Authentication V2 using Enterprise Transport API* article (TBD)
+- [Getting Started with Authentication V2 using Enterprise Message Java API](./EMA_Java_Migration_V2.md) article
+- *Getting Started with Authentication V2 using Enterprise Message C/C++ API* article (TBD)
+- [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md)
+- [ETA Java: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_Java_Migration_V2.md)
 
 If you are the WebSocket API developer, even though you need to manually update the application source code to use new V2 HTTP and WebSocket connections, the V2 workflow is simple to operate when compared to the Authentication V1.  Please see more detail about using the WebSocket API with the Authentication V2 from the following resource:
 - *Getting Started with Authentication V2 using WebSocket API* article (TBD)
