@@ -14,7 +14,9 @@ ETA Java applications use the Enterprise Transport API reactor to connect to Ref
 
 ### 1. Setting RDP authentication version 2 credentials in the OMM consumer role
 
-RDP authentication version 2 oAuth Client Credentials requires a client ID and client secret instead of a username, password, and client ID. The client ID and client secret are set in the **ReactorOAuthCredential ** instance. 
+RDP authentication version 2 oAuth Client Credentials requires a client ID and client secret instead of a username, password, and client ID. The client ID in version 2 is different from the client ID in version 1. 
+
+The client ID and client secret are set in the **ReactorOAuthCredential ** instance. 
 
 ![](images/etaj_reactoroauthcred.png)
 
