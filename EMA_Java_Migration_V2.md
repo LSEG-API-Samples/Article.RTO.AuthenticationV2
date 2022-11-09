@@ -86,7 +86,6 @@ The service discovery is used to query service endpoints from the Refinitiv Real
 The code must be modified to use the client ID and client secret, as shown below.
 
 ``` Java
-
 AppClient appClient = new AppClient();
 
 ServiceEndpointDiscovery serviceDiscovery = null;
@@ -155,6 +154,7 @@ public class Consumer {
   consumer.registerClient(EmaFactory.createReqMsg().serviceName("ELEKTRON_DD").name(itemName), appClient);
 }
 ```
+
 ### 4.  Changing the RDP authentication version 2 endpoint
 If the application changes the endpoint of the RDP authentication service, this modification is required.
 
@@ -213,9 +213,9 @@ That brings me to the end of this article. The RDP Authentication version 2 simp
 To migrate applications to use the RDP authentication version 2, the code that relates to RDP Authentication must be modified including setting a client ID and client secret in ```OmmConsumerConfig```, ```ServiceEndpointDiscovery```, and ```OAuth2CredentialRenewal```, and optionally changing the RDP authentication version 2 endpoint in ```OmmConsumerConfig```. 
 
 If you are using the other APIs in the Refinitiv Real-Time SDK family, please see more detail about using it with the Authentication V2 from the following resources:
-- *Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message C/C++ API* article (TBD)
-* [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md)
-* [ETA Java: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_Java_Migration_V2.md)
+- [Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message C++ API](./EMA_Cpp_Migration_V2.md) article
+- [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md) article
+- [ETA Java: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_Java_Migration_V2.md) article
 
 If you are the WebSocket API developer, even though you need to manually update the application source code to use new V2 HTTP and WebSocket connections, the V2 workflow is simple to operate when compared to the Authentication V1.  Please see more detail about using the WebSocket API with the Authentication V2 from the following resource:
 - *Getting Started with Authentication V2 using WebSocket API* article (TBD)
@@ -230,6 +230,9 @@ For further details, please check out the following resources:
 * [Refinitiv Real-Time SDK C/C++ page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-cc) on the [Refinitiv Developer Community](https://developers.refinitiv.com/) website.
 * [Refinitiv Real-Time SDK Java page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-java).
 * [Refinitiv WebSocket API page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api).
+* [Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message C++ API article](./EMA_Cpp_Migration_V2.md)
+* [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md)
+* [ETA Java: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_Java_Migration_V2.md)
 * [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) page.
 * [OAuth 2.0 - Access Token Response](https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/) page.
 * [OAuth 2.0 - Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) page.

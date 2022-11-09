@@ -362,9 +362,9 @@ That brings me to the end of this article. The RDP Authentication Service versio
 
 If you are the Refinitiv Real-Time SDK developer, the API automatically handles the new workflow for you. You just need to update the application source code to use newly introduced Authentication V2 methods/interfaces for connecting to the RTO with the V2 client_id and client_secret credential. Please see more detail about using the RTSDK with the Authentication V2 from the following resources:
 - [Getting Started with Authentication V2 using Enterprise Message Java API](./EMA_Java_Migration_V2.md) article
-- *Getting Started with Authentication V2 using Enterprise Message C/C++ API* article (TBD)
-- [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md)
-- [ETA Java: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_Java_Migration_V2.md)
+- [Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message C++ API](./EMA_Cpp_Migration_V2.md) article
+- [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md) article
+- [ETA Java: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_Java_Migration_V2.md) article
 
 If you are the WebSocket API developer, even though you need to manually update the application source code to use new V2 HTTP and WebSocket connections, the V2 workflow is simple to operate when compared to the Authentication V1.  Please see more detail about using the WebSocket API with the Authentication V2 from the following resource:
 - *Getting Started with Authentication V2 using WebSocket API* article (TBD)
@@ -378,7 +378,8 @@ For further details, please check out the following resources:
 * [Refinitiv WebSocket API page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api).
 * [ETA C: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_C_Migration_V2.md)
 * [ETA Java: Refinitiv Real-Time Optimized Authentication Version 2 Migration Guide](./ETA_Java_Migration_V2.md)
-* [Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message Java API](./ETA_Java_Migration_V2.md)
+* [Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message Java API](./EMA_Java_Migration_V2.md)
+* [Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message C++ API](./EMA_Cpp_Migration_V2.md)
 * [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) page.
 * [OAuth 2.0 - Access Token Response](https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/) page.
 * [OAuth 2.0 - Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) page.
