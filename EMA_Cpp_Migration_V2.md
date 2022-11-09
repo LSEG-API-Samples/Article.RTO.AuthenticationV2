@@ -1,6 +1,6 @@
 # Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message C++ API
 - version: Draft
-- Last update: Nov 2022
+- Last update: November 2022
 
 **Note**: This is a draft version of the public articles on the Developer Portal. For internal use documents, please check the [Article.RTO.AuthenticationV2.Internal](https://github.com/Refinitiv-API-Samples/Article.RTO.AuthenticationV2.Internal) repository. 
 
