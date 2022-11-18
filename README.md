@@ -16,7 +16,7 @@ This article is focusing on the Refinitiv Real-Time - Optimized developers (a ma
 
 The first step of an application workflow is to get a token from RDP Authentication Service, which will allow access to the protected resource, i.e. data REST API, streaming services, etc. Once a valid token is received, this token is sent with every REST API call to get data. For the Real-Time Streaming service, this token must be sent when the application logins to the streaming server on the cloud.
 
-Refinitiv Data Platform (RDP) entitlement check is based on OAuth 2.0 specification. The RDP's Version 1 Authentication service uses the[Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) and [Refresh Token Grant](https://www.oauth.com/oauth2-servers/access-tokens/refreshing-access-tokens/) models to get the first set of tokens and renew subsequent tokens respectively. 
+Refinitiv Data Platform (RDP) entitlement check is based on OAuth 2.0 specification. The RDP's Version 1 Authentication service uses the [Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) and [Refresh Token Grant](https://www.oauth.com/oauth2-servers/access-tokens/refreshing-access-tokens/) models to get the first set of tokens and renew subsequent tokens respectively. 
 
 On the other hand, the RDP's Version 2 Authentication (or simply known as *V2 auth*, *oAuthClientCredentials* or *V2 Client Credentials*) service uses the oAuth2.0 [Client Credentials Grant](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) model for getting token information. So, what the Client Credentials Grant Model is?
 
@@ -26,7 +26,7 @@ The Client Credentials grant is used when applications request an access token t
 
 This model uses the ```client_id``` and ```client_secret``` as the client authentication information to authenticate clients for this request. The ```client_id``` is a public identifier for apps, and the ```client_secret``` is the application’s password. The request ```grant_type``` parameter must be set to **client_credentials**. Please find more detail about the Client ID and Secret from the [OAuth 2.0  - The Client ID and Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) page.
 
-Example HTTP request message from the [oauth.com][https://www.oauth.com/] website:
+Example HTTP request message from the [oauth.com](https://www.oauth.com/) website:
 ``` HTTP
 POST /token HTTP/1.1
 Host: authorization-server.com
@@ -39,7 +39,7 @@ grant_type=client_credentials
 
 If the request for an access token is valid, the authorization server needs to generate an access token and return these to the client, typically along with some additional properties about the authorization.
 
-Example HTTP response message from the [oauth.com][https://www.oauth.com/] website:
+Example HTTP response message from the [oauth.com](https://www.oauth.com/) website:
 ``` HTTP
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -143,10 +143,9 @@ Example:
 
 The Version 2 Authentication does not use a refresh grant logic. If the application needs a refreshing token, the application can just re-send a new authentication request (with ```grant_type``` of **client_credentials** ) to the RDP endpoint.
 
+### Comparing with the Version 1 Authentication
 
-### Comparing with the Authentication V1
-
-The Authentication V1 uses the Password Grant model request for requesting the initial token, then uses the Refresh Grant model request for renewing the access token. The V1 also produces multiple types of tokens for requesting data and the renewal process. It means the application and API need to manage different types of request messages in the same application.
+The Version 1 Authentication uses the Password Grant model request for requesting the initial token, then uses the Refresh Grant model request for renewing the access token. The V1 also produces multiple types of tokens for requesting data and the renewal process. It means the application and API need to manage different types of request messages in the same application.
 
 The V1 workflow is shown below.
 
@@ -206,9 +205,9 @@ Summary:
 
 If you are using the Refinitiv Real-Time SDK, the API automatically handles this token renewal process for you. However, the Version 2 Authentication streaming workflow is much simpler for WebSocket API developers because the application does not need to renew the access token as long as its streaming channel is active.
 
-### Comparing with the Authentication V1
+### Comparing with the Version 1 Authentication
 
-Unlike the V2, the Authentication V1 needs to re-authentication the RDP Authentication Service version 1 (HTTP REST) before the token is expired. And then re-issue an OMM Login request message (RSSL/WebSocket) with a new access token to keep the streaming channel open.
+Unlike the V2, the Version 1 Authentication needs to re-authentication the RDP Authentication Service version 1 (HTTP REST) before the token is expired. And then re-issue an OMM Login request message (RSSL/WebSocket) with a new access token to keep the streaming channel open.
 
 That covers the Real-Time Streaming connection overview with the RDP Authentication Service version 2.
 
@@ -238,9 +237,8 @@ The EMA API automatically operates the HTTP and streaming connections workflow f
 The rest of the code logic such as subscription logic, incoming message callbacks, etc is the same.
 
 For more detail about using the Version 2 Authentication with the Enterprise Message API, please check the following documents:
-upcoming *Getting Started with Version 2 Authentication using Enterprise Message API* article (TBD).
-* [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message Java API](./ETA_Java_Migration_V2.md)
-* Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message C/C++ API (TBD)
+* [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message Java API](./EMA_Java_Migration_V2.md)
+* [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message C/C++ API](./EMA_Cpp_Migration_V2.md)
 
 #### EMA API Version 2 Authentication - Quick Start
 
@@ -361,7 +359,7 @@ That’s all I have to say about the WebSocket API quick start with the Version 
 That brings me to the end of this article. The RDP Authentication Service version 2 brings a lot of improvements to the Refinitiv Real-Time - Optimized (RTO) applications. The V2 simplifies the overall authentication process with a single access token and a long token expiration time. The major advantage for real-time users is the application/API does not need to renew the access token as long as the streaming connection is active.
 
 If you are the Refinitiv Real-Time SDK developer, the API automatically handles the new workflow for you. You just need to update the application source code to use newly introduced Version 2 Authentication methods/interfaces for connecting to the RTO with the V2 client_id and client_secret credential. Please see more detail about using the RTSDK with the Version 2 Authentication from the following resources:
-- [Getting Started with Version 2 Authentication using Enterprise Message Java API](./EMA_Java_Migration_V2.md) article
+- [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message Java API](./EMA_Java_Migration_V2.md) article
 - [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message C++ API](./EMA_Cpp_Migration_V2.md) article
 - [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md) article
 - [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md) article
@@ -380,6 +378,7 @@ For further details, please check out the following resources:
 * [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md)
 * [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message Java API](./EMA_Java_Migration_V2.md)
 * [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message C++ API](./EMA_Cpp_Migration_V2.md)
+* Getting Started with Version 2 Authentication using WebSocket API (TBD)
 * [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) page.
 * [OAuth 2.0 - Access Token Response](https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/) page.
 * [OAuth 2.0 - Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) page.
