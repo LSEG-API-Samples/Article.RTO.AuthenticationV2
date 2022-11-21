@@ -145,13 +145,13 @@ The Version 2 Authentication does not use a refresh grant logic. If the applicat
 
 ### Comparing with the Version 1 Authentication
 
-The Version 1 Authentication uses the Password Grant model request for requesting the initial token, then uses the Refresh Grant model request for renewing the access token. The V1 also produces multiple types of tokens for requesting data and the renewal process. It means the application and API need to manage different types of request messages in the same application.
+The Version 1 Authentication uses the Password Grant model request for requesting the initial token, then uses the Refresh Grant model request for renewing the access token. The Version 1 also produces multiple types of tokens for requesting data and the renewal process. It means the application and API need to manage different types of request messages in the same application.
 
-The V1 workflow is shown below.
+The Version 1 workflow is shown below.
 
 ![figure-2](images/02_auth_v1_http_flow.png "Authentication V1 HTTP Workflow")
 
-You see that the V1 HTTP operation workflow is more complex than the V2.
+You see that the Version 1 HTTP operation workflow is more complex than the Version 2.
 
 That’s all I have to say about the RDP Authentication Service Version 2 HTTP workflow.
 
@@ -293,13 +293,13 @@ Examples of RTO RSSL Hosts are as follows (based on each user's permission):
 - ap-northeast-1-aws-3-sm.optimized-pricing-api.refinitiv.net
 - us-east-1-aws-3-sm.optimized-pricing-api.refinitiv.net
 
-![figure-7](images/07_etac_run_result.gif "ETA Java ValueAdd Consumer result")
+![figure-7](images/07_etac_run_result.gif "ETA C ValueAdd Consumer result")
 
 That covers the RTSDK quick start with the Version 2 Authentication.
 
-## <a id="v2_ws"></a>How to use with the WebSocket API with Version 2 Authentication
+## <a id="v2_ws"></a>How to use the WebSocket API with Version 2 Authentication
 
-That brings us to the WebSocket API. The [Websocket API for Pricing Streaming and Real-Time Services](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api) (aka WebSocket API) supports the Version 2 Authentication workflow. However, the WebSocket API developers need to operate the Version 2 Authentication HTTP and streaming connections manually. The example code that demonstrate the Version 2 Authentication workflow are the ```*RDPGW_ClientCredAuth*``` examples as follow:
+That brings us to the WebSocket API. The [Websocket API for Pricing Streaming and Real-Time Services](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api) (aka WebSocket API) supports the Version 2 Authentication workflow. However, the WebSocket API developers need to operate the Version 2 Authentication HTTP and streaming connections manually. The example code that demonstrates the Version 2 Authentication workflow are the ```*RDPGW_ClientCredAuth*``` examples as follows:
 * ```market_price_rdpgw_client_cred_auth.py``` for Python.
 * ```MarketPriceRdpGwClientCredAuthExample.cs``` for C#
 * ```MarketPriceRdpGwClientCredAuth.java``` for Java
@@ -309,7 +309,7 @@ Please note that the main Version 2 Authentication workflow's concept is the sam
 
 The rest of the code logic such as subscription logic, incoming message callbacks, ping-pong messages, etc is the same.
 
-For more detail about using the Version 2 Authentication with the WebSocket API, please check the upcoming *Getting Started with Version 2 Authentication using WebSocket API* article (TBD).
+For more detail about using Version 2 Authentication with the WebSocket API, please check the upcoming *Getting Started with Version 2 Authentication using WebSocket API* article (TBD).
 
 #### WebSocket API Version 2 Authentication - Quick Start
 
@@ -317,7 +317,7 @@ So, now let’s look at the WebSocket API with Version 2 Authentication examples
 
 Python ```market_price_rdpgw_client_cred_auth.py```:
 
-Firstly, install the dependencies using [Python pip tool](https://packaging.python.org/en/latest/tutorials/installing-packages/#use-pip-for-installing).
+Firstly, install the dependencies using the [Python pip tool](https://packaging.python.org/en/latest/tutorials/installing-packages/#use-pip-for-installing).
 
 ``` Bash
 $>pip install requests websocket-client
