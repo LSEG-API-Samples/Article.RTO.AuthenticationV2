@@ -292,7 +292,7 @@ $> python market_price_rdpgw_client_cred_auth.py --clientid <clientid> --clients
 
 #### Example Run Result with Python
 
-![image](https://user-images.githubusercontent.com/89068039/202957756-e43dffc7-e535-4767-b24a-9f1f8914538e.png)
+![figure-8](images/08_ws_python_run_result.gif "WebSocket API Python result")
 
 #### Java WebSocket - Running
 
@@ -307,14 +307,14 @@ Next, set the Java Classpath that Ant gave you
 $>export CLASSPATH=lib/accessors-smart-1.1.jar:lib/asm-5.0.3.jar:lib/commons-cli-1.3.jar:lib/commons-codec-1.9.jar:lib/commons-logging-1.2.jar:lib/hamcrest-core-1.3.jar:lib/httpclient-4.5.3.jar:lib/httpcore-4.4.6.jar:lib/json-20160810.jar:lib/json-path-2.1.0.jar:lib/json-smart-2.2.jar:lib/junit-4.12.jar:lib/mockito-core-1.9.5.jar:lib/nv-websocket-client-1.30.jar:lib/objenesis-1.0.jar:lib/slf4j-api-1.7.13.jar:bin
 ```
 
-![image](https://user-images.githubusercontent.com/89068039/202957992-bb7b4fce-fc9a-4c9d-97e9-847d8d6d67e8.png)
+![figure-9](images/09_ws_java_build_result_2.gif "WebSocket API Java Build result")
 
 Then, run the example with the following command:
 
 ``` Bash
 $>java MarketPriceRdpGwClientCredAuth --clientid <ClientID> --clientsecret <ClientSecret> --ric /EUR=
 ```
-![image](https://user-images.githubusercontent.com/89068039/202957914-e6fefea3-226e-44ec-aa6e-6833d085ea18.png)
+![figure-10](images/10_ws_java_run_result_1.gif "WebSocket API Java Run result")
 
 ## <a id="summary"></a>Summary
 The RDP Version 2 Authentication simplifies the usage of access tokens when connecting to Refinitiv Real-Time Optimized. It uses the industry-standard [OAuth 2.0 - Client Credentials model] with a client ID, and client secret credentials instead of a username, password, and client ID (application key). The major advantage for real-time users is the applications don’t need to renew access tokens at every specific interval as the access token used by the application will remain valid until the application disconnects or is disconnected from Refinitiv Real-Time Optimized. 
