@@ -366,6 +366,8 @@ The RDP Version 2 Authentication simplifies the usage of access tokens when conn
 
 To migrate applications to use the RDP Version 2 Authentication for WebSocket API developer, even though you need to manually update the application source code to use new HTTP and WebSocket connections, the V2 workflow is simple to operate when compared to the V1 one.
 
+However, in case you have any questions regarding WebSocket API usage and/or its migration to V2 Authentication, you are recommended to check our [Q&A Forum of WebSocket API](https://community.developers.refinitiv.com/spaces/152/index.html) or posting the question into this forum. We're willing to assist you regarding this.
+
 If you are using the other APIs in the Refinitiv Real-Time SDK family, please see more detail about using it with the V2 Authentication from the following resources:
 - [Getting Started with V2 Authentication for Refinitiv Real-Time using Enterprise Message C++ API](./EMA_Cpp_Migration_V2.md) article
 - [Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message Java API](./EMA_Java_Migration_V2.md) article
