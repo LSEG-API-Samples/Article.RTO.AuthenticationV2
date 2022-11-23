@@ -260,27 +260,7 @@ else:
   # Re-request Access Token for an initial disconnect
 ```
 
-The V1 Authentication workflow is different. It re-requests the Access Token every 8-9 minutes with the Refresh Grant, then re-sends the JSON Login message with that new Access token.
-
-```Python
-#  Continue using current token until 90% of initial time before it expires.
-time.sleep(int(float(expire_time) * 0.90))
-
-sts_token, refresh_token, expire_time = get_sts_token(refresh_token)
-if not sts_token:
-    sys.exit(1)
- 
-if int(expire_time) != int(original_expire_time):
-  print('expire time changed from ' + str(original_expire_time) + ' sec to ' + str(expire_time) + ' sec; retry with password')
-  sts_token, refresh_token, expire_time = get_sts_token(None)
-  if not sts_token:
-    sys.exit(1) 
-  original_expire_time = expire_time 
-
-# Update token.
-if logged_in:
-  send_login_request(sts_token, True)
-```
+**Note:** The V1 Authentication workflow is different. It re-requests the Access Token every 8-9 minutes with the Refresh Grant, then re-sends the JSON Login message with that new Access token.
 
 ### Running Examples
 The V2 Authentication examples are ```*MarketPrice_RdpGw_ClientCred_auth*``` example codes available on [Refinitiv/websocket-api GitHub](https://github.com/Refinitiv/websocket-api/tree/master/Applications/Examples/RDP) repository (in the ```/Applications/Examples/RDP/``` folder). 
