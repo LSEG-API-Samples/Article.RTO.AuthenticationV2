@@ -58,7 +58,7 @@ The EMA C++ API automatically operates the RTO HTTP and streaming connections wo
 
 I will begin with the most important code migration, setting credentials to the ```OmmConsumer``` class. The V2 auth Client Credentials requires a client ID and client secret credential instead of a username, password, and client ID. The client ID and client secret are set to the ```OmmConsumer``` instance via the ```OmmConsumerConfig``` class. 
 
-![figure-1](images/emac_01_OmmConsumerConfig.png "EMA C++ OmmConsumerConfig Version 2 Authentication methods")
+![figure-1](images/emac_01_ommconsumerconfig.png "EMA C++ OmmConsumerConfig Version 2 Authentication methods")
 
 The code must be modified to use the client ID and client secret, as shown below.
 
@@ -81,6 +81,8 @@ Note: The *userName*, *password*, and *V1 clientID* (*App Key*) properties are n
 If the application uses the service discovery, this modification is required. 
 
 The service discovery is used to query service endpoints from the Refinitiv Real-Time Optimized service. It also requires RDP credentials to connect to the service discovery endpoint. To migrate to RDP Version 2 Authentication, the client ID and client secret must be set in the ```ServiceEndpointDiscovery``` instance via the ```ServiceEndpointDiscoveryOption``` class. 
+
+![figure-2](images/emac_02_serviceendpointdiscovery.png  "EMA C++ ServiceEndpointDiscoveryOption Version 2 Authentication methods")
 
 The code must be modified to use the client ID and client secret, as shown below.
 
@@ -139,7 +141,7 @@ If the application changes the endpoint of the RDP authentication service, this 
 
 By default, the endpoint of the RDP Version 2 Authentication is **https://api.refinitiv.com/auth/oauth2/v2/token**. However, this can be overridden by specifying another endpoint in the ```tokenServiceUrlV2``` method of the ```OmmConsumerConfig``` class. 
 
-![figure-5](images/emac_05_tokenServiceUrlV2.png "EMA C++ tokenServiceUrlV2 methods")
+![figure-5](images/emac_05_tokenserviceurlv2.png "EMA C++ tokenServiceUrlV2 methods")
 
 The RDP Version 2 Authentication endpoint can be changed via the following code.
 

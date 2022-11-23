@@ -58,7 +58,7 @@ The EMA Java API automatically operates the RTO HTTP and streaming connections w
 
 I will begin with the most important code migration, setting credentials to the ```OmmConsumer``` class. The V2 auth Client Credentials requires a client ID and client secret credential instead of a username, password, and client ID. The client ID and client secret are set to the ```OmmConsumer``` instance via the ```OmmConsumerConfig``` class. 
 
-![figure-1](images/emaj_01_OmmConsumerConfig.png "EMA Java OmmConsumerConfig Version 2 Authentication methods")
+![figure-1](images/emaj_01_ommconsumerconfig.png "EMA Java OmmConsumerConfig Version 2 Authentication methods")
 
 The code must be modified to use the client ID and client secret, as shown below.
 
@@ -81,7 +81,7 @@ If the application uses the service discovery, this modification is required.
 
 The service discovery is used to query service endpoints from the Refinitiv Real-Time Optimized service. It also requires RDP credentials to connect to the service discovery endpoint. To migrate to RDP Version 2 Authentication, the client ID and client secret must be set in the ```ServiceEndpointDiscovery``` instance via the ```ServiceEndpointDiscoveryOption``` class. 
 
-![figure-2](images/emaj_02_ServiceEndpointDiscoveryOption.png  "EMA Java ServiceEndpointDiscoveryOption Version 2 Authentication methods")
+![figure-2](images/emaj_02_serviceendpointdiscoveryoption.png  "EMA Java ServiceEndpointDiscoveryOption Version 2 Authentication methods")
 
 The code must be modified to use the client ID and client secret, as shown below.
 
@@ -101,9 +101,9 @@ If the application uses the OAuth credential event callback function, this modif
 
 By default, the Enterprise Message API will store all credential information. To use secure credential storage, a callback function can be specified by the user. If an ```OmmOAuth2ConsumerClient``` instance is specified when creating the OmmConsumer object, the EMA API does not store the password or clientSecret. In this case, the application must supply the password or clientSecret whenever the OAuth credential event ```OmmOAuth2ConsumerClient.onCredentialRenewal``` callback method is invoked. This call back must call set the credentials to the ```OAuth2CredentialRenewal``` instance and set it to```OmmConsumer.renewOAuthCredentials``` to provide the updated credentials.
 
-![figure-3](images/emaj_03_OmmOAuth2ConsumerClient.png "EMA Java OmmOAuth2ConsumerClient Version 2 Authentication methods")
+![figure-3](images/emaj_03_ommoauth2consumerclient.png "EMA Java OmmOAuth2ConsumerClient Version 2 Authentication methods")
 
-![figure-4](images/emaj_04_OAuth2CredentialRenewal.png "EMA Java renewOAuthCredentials Version 2 Authentication methods")
+![figure-4](images/emaj_04_oauth2credentialrenewal.png "EMA Java renewOAuthCredentials Version 2 Authentication methods")
 
 The code must be modified to use the client ID and client secret, as shown below.
 
@@ -160,7 +160,7 @@ If the application changes the endpoint of the RDP authentication service, this 
 
 By default, the endpoint of the RDP Version 2 Authentication is **https://api.refinitiv.com/auth/oauth2/v2/token**. However, this can be overridden by specifying another endpoint in the ```tokenServiceUrlV2``` method of the ```OmmConsumerConfig``` class. 
 
-![figure-5](images/emaj_05_tokenServiceUrlV2.png "EMA Java tokenServiceUrlV2 methods")
+![figure-5](images/emaj_05_tokenserviceurlv2.png "EMA Java tokenServiceUrlV2 methods")
 
 The RDP Version 2 Authentication endpoint can be changed via the following code.
 
