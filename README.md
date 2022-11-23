@@ -237,8 +237,8 @@ The EMA API automatically operates the HTTP and streaming connections workflow f
 The rest of the code logic such as subscription logic, incoming message callbacks, etc is the same.
 
 For more detail about using the Version 2 Authentication with the Enterprise Message API, please check the following documents:
-* [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message Java API](./EMA_Java_Migration_V2.md)
-* [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message C/C++ API](./EMA_Cpp_Migration_V2.md)
+* [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md)
+* [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md)
 
 #### EMA API Version 2 Authentication - Quick Start
 
@@ -330,6 +330,8 @@ $>python market_price_rdpgw_client_cred_auth.py --clientid <clientid> --clientse
 ```
 ![figure-8](images/08_ws_python_run_result.gif "WebSocket API Python result")
 
+<!--
+
 Java ```MarketPriceRdpGwClientCredAuth.java```:
 
 Firstly, build and compile the project with [Apache Ant](https://ant.apache.org/).
@@ -351,6 +353,7 @@ $>java MarketPriceRdpGwClientCredAuth --clientid <ClientID> --clientsecret <Clie
 ```
 
 ![figure-10](images/10_ws_java_run_result_1.gif "WebSocket API Java Run result")
+-->
 
 That’s all I have to say about the WebSocket API quick start with the Version 2 Authentication.
 
@@ -359,8 +362,8 @@ That’s all I have to say about the WebSocket API quick start with the Version 
 That brings me to the end of this article. The RDP Authentication Service version 2 brings a lot of improvements to the Refinitiv Real-Time - Optimized (RTO) applications. The V2 simplifies the overall authentication process with a single access token and a long token expiration time. The major advantage for real-time users is the application/API does not need to renew the access token as long as the streaming connection is active.
 
 If you are the Refinitiv Real-Time SDK developer, the API automatically handles the new workflow for you. You just need to update the application source code to use newly introduced Version 2 Authentication methods/interfaces for connecting to the RTO with the V2 client_id and client_secret credential. Please see more detail about using the RTSDK with the Version 2 Authentication from the following resources:
-- [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message Java API](./EMA_Java_Migration_V2.md) article
-- [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message C++ API](./EMA_Cpp_Migration_V2.md) article
+- [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md) article
+- [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md) article
 - [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md) article
 - [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md) article
 
@@ -376,8 +379,8 @@ For further details, please check out the following resources:
 * [Refinitiv WebSocket API page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api).
 * [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md)
 * [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md)
-* [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message Java API](./EMA_Java_Migration_V2.md)
-* [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message C++ API](./EMA_Cpp_Migration_V2.md)
+* [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md)
+* [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md)
 * Getting Started with Version 2 Authentication using WebSocket API (TBD)
 * [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) page.
 * [OAuth 2.0 - Access Token Response](https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/) page.

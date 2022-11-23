@@ -1,4 +1,4 @@
-# Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message Java API
+# EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide
 - version: Draft
 - Last update: November 2022
 
@@ -213,7 +213,7 @@ That brings me to the end of this article. The RDP Version 2 Authentication simp
 To migrate applications to use the RDP Version 2 Authentication, the code that relates to RDP Authentication must be modified including setting a client ID and client secret in ```OmmConsumerConfig```, ```ServiceEndpointDiscovery```, and ```OAuth2CredentialRenewal```, and optionally changing the RDP Version 2 Authentication endpoint in ```OmmConsumerConfig```. 
 
 If you are using the other APIs in the Refinitiv Real-Time SDK family, please see more detail about using it with the Version 2 Authentication from the following resources:
-- [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message C++ API](./EMA_Cpp_Migration_V2.md) article
+- [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md) article
 - [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md) article
 - [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md) article
 
@@ -230,7 +230,7 @@ For further details, please check out the following resources:
 * [Refinitiv Real-Time SDK C/C++ page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-cc) on the [Refinitiv Developer Community](https://developers.refinitiv.com/) website.
 * [Refinitiv Real-Time SDK Java page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-java).
 * [Refinitiv WebSocket API page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api).
-* [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message C++ API article](./EMA_Cpp_Migration_V2.md)
+* [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md)
 * [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md)
 * [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md)
 * [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) page.

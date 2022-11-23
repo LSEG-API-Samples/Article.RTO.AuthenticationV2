@@ -1,4 +1,4 @@
-# Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message C++ API
+# EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide
 - version: Draft
 - Last update: November 2022
 
