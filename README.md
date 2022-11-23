@@ -368,7 +368,7 @@ If you are the Refinitiv Real-Time SDK developer, the API automatically handles 
 - [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md) article
 
 If you are the WebSocket API developer, even though you need to manually update the application source code to use new V2 HTTP and WebSocket connections, the V2 workflow is simple to operate when compared to the Authentication V1.  Please see more detail about using the WebSocket API with the Version 2 Authentication from the following resource:
-- *Getting Started with Version 2 Authentication using WebSocket API* article (TBD)
+- [Real-Time WebSocket API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](WS_Migration_V2.md)
 
 ## <a id="references"></a>References
 
@@ -381,7 +381,7 @@ For further details, please check out the following resources:
 * [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md)
 * [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md)
 * [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md)
-* Getting Started with Version 2 Authentication using WebSocket API (TBD)
+* [Real-Time WebSocket API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](WS_Migration_V2.md)
 * [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) page.
 * [OAuth 2.0 - Access Token Response](https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/) page.
 * [OAuth 2.0 - Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) page.

@@ -1,4 +1,4 @@
-# Getting Started with V2 Authentication for Refinitiv Real-Time using Refinitiv WebSocket API with its Migration Guide
+# Real-Time WebSocket API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide
 - version: Draft
 - Last update: November 2022
 
@@ -305,8 +305,8 @@ To migrate applications to use the RDP Version 2 Authentication for WebSocket AP
 However, in case you have any questions regarding WebSocket API usage and/or its migration to V2 Authentication, you are recommended to check our [Q&A Forum of WebSocket API](https://community.developers.refinitiv.com/spaces/152/index.html) or posting the question into this forum. We're willing to assist you regarding this.
 
 If you are using the other APIs in the Refinitiv Real-Time SDK family, please see more detail about using it with the V2 Authentication from the following resources:
-- [Getting Started with V2 Authentication for Refinitiv Real-Time using Enterprise Message C++ API](./EMA_Cpp_Migration_V2.md) article
-- [Getting Started with Authentication V2 for Refinitiv Real-Time using Enterprise Message Java API](./EMA_Java_Migration_V2.md) article
+- [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md) article
+- [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md) article
 - [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md) article
 - [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md) article
 
@@ -318,8 +318,8 @@ For further details, please check out the following resources:
 * [Refinitiv WebSocket API page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api).
 * [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md)
 * [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md)
-* [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message Java API](./EMA_Java_Migration_V2.md)
-* [Getting Started with Version 2 Authentication for Refinitiv Real-Time using Enterprise Message C++ API](./EMA_Cpp_Migration_V2.md)
+* [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md)
+* [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md)
 * [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) page.
 * [OAuth 2.0 - Access Token Response](https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/) page.
 * [OAuth 2.0 - Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) page.
