@@ -33,7 +33,7 @@ The V2 Authentication requires the following access credential information in th
 
 **Note**: The ```V2 client_id``` **is not the same value** as the ```V1 client_id``` which is an ```app key``` of the [V1 - Password Grant Model](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/).
 
-### Benefits of V2 Auth Over the V1 one
+### Version 2 Authentication Benefits Over Version 1
 1. Longer Access Token time (V1: 10 minutes vs V2: 120 minutes).
 2. Version 2 Authentication produces a single Access Token, which is easier to manage.
 3. Simplify an Access Token renewal process
