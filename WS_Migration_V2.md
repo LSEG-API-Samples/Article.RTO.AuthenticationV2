@@ -11,7 +11,7 @@ The RTO utilizes the RDP authentication service to obtain Access Token informati
 
 The V2 Authentication is a new authentication service for Refinitiv Real-Time Optimized (RTO). This document aims for helping developers to understand how to use the WebSocket API with the V2 Authentication including update the URL and body of authentication request to be V2 Authentication's. Plus, handle the response returned and use the token from the response in the Service Discovery and Login request to RTO as usaul. 
 
-For more detail about the V2 Authentication overview and concept, please check this [Getting Started with V2 Authentication](./README.md) document.
+For more detail about the V2 Authentication overview and concept, please check this [Getting Started with V2 Authentication](./AuthenticationV2_Intro.md) document.
 
 ## V2 Authentication Summaries
 
