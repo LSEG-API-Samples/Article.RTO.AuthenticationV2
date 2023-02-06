@@ -1,8 +1,6 @@
 # EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide
-- version: Draft
-- Last update: November 2022
-
-**Note**: This is a draft version of the public articles on the Developer Portal. For internal use documents, please check the [Article.RTO.AuthenticationV2.Internal](https://github.com/Refinitiv-API-Samples/Article.RTO.AuthenticationV2.Internal) repository. 
+- version: 1.0
+- Last update: Feb 2023
 
 ## <a id="intro"></a>Introduction
 

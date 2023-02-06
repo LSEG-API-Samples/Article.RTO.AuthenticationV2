@@ -1,4 +1,6 @@
 # ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide
+- version: 1.0
+- Last update: Feb 2023
 
 Real-Time Optimized (RTO) is Refinitiv conflated real-time content, hosted in the public cloud. It provides fast and simple access to our unparalleled content from hundreds of exchanges and OTC markets around the world.  
 

@@ -2,8 +2,6 @@
 - version: 1.0
 - Last update: Feb 2023
 
-**Note**: This is a draft version of the public articles on the Developer Portal. For internal use documents, please check the [Article.RTO.AuthenticationV2.Internal](https://github.com/Refinitiv-API-Samples/Article.RTO.AuthenticationV2.Internal) repository. 
-
 ## <a id="intro"></a>Background
 
 Refinitiv have been significantly investing in our authentication services to provide you with more resilient, reliable, and secure service to the products and solutions you use.
