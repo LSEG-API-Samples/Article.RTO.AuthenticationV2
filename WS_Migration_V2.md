@@ -296,6 +296,7 @@ $>java MarketPriceRdpGwClientCredAuth --clientid <ClientID> --clientsecret <Clie
 ![figure-10](images/10_ws_java_run_result_1.gif "WebSocket API Java Run result")
 
 ## <a id="summary"></a>Summary
+
 The RDP Version 2 Authentication simplifies the usage of access tokens when connecting to Refinitiv Real-Time Optimized. It uses the industry-standard [OAuth 2.0 - Client Credentials model] with a client ID, and client secret credentials instead of a username, password, and client ID (application key). The major advantage for real-time users is the applications don’t need to renew access tokens at every specific interval as the access token used by the application will remain valid until the application disconnects or is disconnected from Refinitiv Real-Time Optimized. 
 
 To migrate applications to use the RDP Version 2 Authentication for WebSocket API developer, even though you need to manually update the application source code to use new HTTP and WebSocket connections, the V2 workflow is simple to operate when compared to the previous one.

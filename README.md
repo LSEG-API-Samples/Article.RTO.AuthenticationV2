@@ -27,3 +27,15 @@ Please do take time to read and understand the content relevant for your API typ
 * [Real-Time WebSocket API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](WS_Migration_V2.md)
 
 For any questions related to this article or the RTSDK page, please use the Developer Community [Q&A Forum](https://community.developers.refinitiv.com/).
+
+## <a id="dev_articles"></a> Developer Articles
+
+The following content is also available on the [Refinitiv Developer Community](https://developers.refinitiv.com/) website.
+
+* [Changes to Customer Access and Identity Management: Refinitiv Real-Time - Optimized ](https://developers.refinitiv.com/en/article-catalog/article/changes-to-customer-access-and-identity-management--refinitiv-re) article
+* [Getting Started with Version 2 Authentication](https://developers.refinitiv.com/en/article-catalog/article/getting-started-with-version-2-authentication-for-refinitiv-real)
+* [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/eta-c--refinitiv-real-time-optimized-authentication-version-2-mi) article
+* [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/eta-java--refinitiv-real-time-optimized-authentication-version-2) article
+* [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/ema-c-api-real-time-optimized-version-2-authentication-migration-guide) article
+* [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/ema-java-api-real-time-optimized-version-2-authentication-migration-guide) article
+* [Real-Time WebSocket API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/webSocket-api-rto-v2-authentication-migration-guide) article

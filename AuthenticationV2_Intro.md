@@ -2,6 +2,7 @@
 - version: 1.0
 - Last update: Feb 2023
 
+
 ## <a id="intro"></a>Introduction
 
 [Refinitiv Data Platform (RDP)](https://developers.refinitiv.com/en/api-catalog/refinitiv-data-platform/refinitiv-data-platform-apis) gives you seamless and holistic access to all of the Refinitiv content (whether real-time or non-real-time, analytics or alternative datasets), commingled with your content, enriching, integrating, and distributing the data through a single interface, delivered wherever you need it. As part of the Refinitiv Data Platform, the Refinitiv Real-Time - Optimized (RTO) gives you access to best-in-class Real-Time market data delivered in the cloud.  Refinitiv Real-Time - Optimized is a new delivery mechanism for RDP, using the AWS (Amazon Web Services) cloud.
@@ -386,3 +387,15 @@ For further details, please check out the following resources:
 * [OAuth 2.0 - Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) page.
 
 For any questions related to this article or the RTSDK page, please use the Developer Community [Q&A Forum](https://community.developers.refinitiv.com/).
+
+## <a id="dev_articles"></a> Developer Articles
+
+The following content is also available on the [Refinitiv Developer Community](https://developers.refinitiv.com/) website.
+
+* [Changes to Customer Access and Identity Management: Refinitiv Real-Time - Optimized ](https://developers.refinitiv.com/en/article-catalog/article/changes-to-customer-access-and-identity-management--refinitiv-re) article
+* [Getting Started with Version 2 Authentication](https://developers.refinitiv.com/en/article-catalog/article/getting-started-with-version-2-authentication-for-refinitiv-real)
+* [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/eta-c--refinitiv-real-time-optimized-authentication-version-2-mi) article
+* [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/eta-java--refinitiv-real-time-optimized-authentication-version-2) article
+* [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/ema-c-api-real-time-optimized-version-2-authentication-migration-guide) article
+* [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/ema-java-api-real-time-optimized-version-2-authentication-migration-guide) article
+* [Real-Time WebSocket API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/webSocket-api-rto-v2-authentication-migration-guide) article
