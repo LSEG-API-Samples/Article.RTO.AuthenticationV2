@@ -17,13 +17,13 @@ The first step of an application workflow is to get a token from RDP Authenticat
 
 Refinitiv Data Platform (RDP) entitlement check is based on OAuth 2.0 specification. The RDP's Version 1 Authentication service uses the [Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) and [Refresh Token Grant](https://www.oauth.com/oauth2-servers/access-tokens/refreshing-access-tokens/) models to get the first set of tokens and renew subsequent tokens respectively. 
 
-On the other hand, the RDP's Version 2 Authentication (or simply known as *V2 auth*, *oAuthClientCredentials* or *V2 Client Credentials*) service uses the oAuth2.0 [Client Credentials Grant](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) model for getting token information. So, what the Client Credentials Grant Model is?
+On the other hand, the RDP's Version 2 Authentication (or simply known as *V2 auth*, *oAuthClientCredentials* or *V2 Client Credentials*) service uses the oAuth2.0 [Client Credentials Grant](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) and [Client Credentials with Private JWT Key](https://auth0.com/docs/secure/tokens/json-web-tokens) (*future release*) models for authentication. So, what those models are?
 
 ## <a id="intro_client_credential"></a>What is OAuth 2.0 - Client Credentials Grant Model?
 
 The Client Credentials grant is used when applications request an access token to access their resources, not on behalf of a user.  This flow is the golden standard for machines-to-machines communication. The client credentials grant type allows an application to obtain an access token for resources owned by the client or when authorization has been *“previously arranged with an authorization server.”* This grant type is appropriate for applications that need to access APIs, such as storage services or databases, on behalf of themselves rather than on behalf of a specific user. 
 
-This model uses the ```client_id``` and ```client_secret``` as the client authentication information to authenticate clients for this request. The ```client_id``` is a public identifier for apps, and the ```client_secret``` is the application’s password. The request ```grant_type``` parameter must be set to **client_credentials**. Please find more detail about the Client ID and Secret from the [OAuth 2.0  - The Client ID and Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) page.
+This model uses the ```client_id``` as a *Service ID* (public identifier for apps) and ```client_secret``` as a *Password* to authenticate clients for this request. The request ```grant_type``` parameter must be set to **client_credentials**. Please find more detail about the Client ID and Secret from the [OAuth 2.0  - The Client ID and Secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/) page.
 
 Example HTTP request message from the [oauth.com](https://www.oauth.com/) website:
 ``` HTTP
@@ -50,12 +50,22 @@ Cache-Control: no-store
   "expires_in":7199
 }
 ```
-That’s all I have to say about the basics of the Client Credentials Model grant model. My next point is the difference between V1 and V2, and what are V2 benefits over V1.
+That’s all I have to say about the basics of the Client Credentials Model grant model. 
 
-## <a id="v1_v2_summary"></a>Authentication V1 and V2 Differences Summary
+## <a id="intro_jwt"></a>What is Client Credentials with Private JWT Key Model? - Future Release
+
+JSON web token (JWT), is an open standard ([RFC 7519](https://tools.ietf.org/html/rfc7519)) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. The tokens are signed either using a private secret or a public/private key.
+
+In this model instead of the client application using a client_id + client_secret in the Client Credentials Model grant model, the client application (and their Security team) create a JWT, sends the public key to us, and uses the JWT to sign the assertion for authentication to RDP. 
+
+This Private JWT Key Model will be released in a future release. This article is focusing on the Client Credentials Grant model for now.
+
+My next point is the difference between V1 and V2 - Client Credentials Model, and what are V2 benefits over V1.
+
+## <a id="v1_v2_summary"></a>V1 Authentication and V2 Client Credentials Model Differences Summary
 
 1. The API URL (**v1** and **v2**)
-2. Credential. The V1 uses Machine Account (username, password, and App-Key), but the V2 uses a Service account (Client ID and Client Secret).
+2. Credential. The V1 uses Machine Account (username, password, and App-Key), but the V2 - Client Credentials Model uses a Service account (Client ID and Client Secret).
 3. Grant Type models (V1 - Password/Refresh Grant vs V2 - Client Credentials) and request parameters 
 4. Token Response Messages between V1 and V2 are different
 5. The V2 uses the same Client Credential grant request message for both the initial request and renewal of the access token.
@@ -73,7 +83,7 @@ That’s all I have to say about the basics of the Client Credentials Model gran
 
 That covers a brief introduction to Version 2 Authentication.
 
-## <a id="v2_http_detail"></a>Version 2 Authentication HTTP Operation in Details 
+## <a id="v2_http_detail"></a>Version 2 Client Credentials Model - Authentication HTTP Operation in Details 
 
 Moving on to the technical detail of the Version 2 Authentication. It is part of the RDP HTTP Web-based API that provides authentication service for users and applications via the Request-Response RESTful web service delivery mechanism. In general, the V2 is based on the [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) model. The API endpoint, credentials, request parameters, and response messages are not compatible with Authentication V1.
 
@@ -101,10 +111,10 @@ The request parameters of V1 and V2 are different. The Version 2 Authentication 
 
 When you log into the Refinitiv Data Platform (either initial connection or renewal), you must use a ```grant_type``` of **client_credentials** to get access token information.
 
-The Version 2 Authentication requires the following access credential information in the HTTP request parameters:
+The Version 2 Authentication - Client Credentials Model requires the following access credential information in the HTTP request parameters:
 - **grant_type**: The grant_type parameter must be set to **client_credentials**.
-- **client_id**:  The ```client_id``` is a public identifier for apps.
-- **client_secret**:  The ```client_secret``` is a secret known only to the application and the authorization server. It is essential to have the application’s password associated with the client ID.
+- **client_id**:  The ```client_id``` is a Service ID (public identifier for apps).
+- **client_secret**:  The ```client_secret``` is a secret known only to the application and the authorization server (Password).
 - **scope (optional)**: Limits the scope of the generated token so that the Access token is valid only for a specific data set
 
 **Note**: The ```V2 client_id``` **is not the same value** as the ```V1 client_id```. The ```V1 client_id``` is an ```app key``` of the [V1 - Password Grant Model](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/).
@@ -308,7 +318,7 @@ Please note that the main Version 2 Authentication workflow's concept is the sam
 
 The rest of the code logic such as subscription logic, incoming message callbacks, ping-pong messages, etc is the same.
 
-For more detail about using Version 2 Authentication with the WebSocket API, please check the upcoming *Getting Started with Version 2 Authentication using WebSocket API* article (TBD).
+For more detail about using Version 2 Authentication with the WebSocket API, please check the upcoming [Getting Started with Version 2 Authentication using WebSocket API article](./WS_Migration_V2.md).
 
 #### WebSocket API Version 2 Authentication - Quick Start
 

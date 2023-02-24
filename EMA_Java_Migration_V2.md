@@ -14,7 +14,7 @@ This article is based on RTSDK Java version 2.0.7.L1 (EMA/ETA API version 3.6.7)
 
 ## <a id="v2_summary"></a>RDP Authentication Service version 2 Summaries
 
-Let’s start with a summary of the RDP's Version 2 Authentication Service (simply known as *V2 auth*, *oAuthClientCredentials* or *V2 Client Credentials*) service. It is based on the [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) model. The Version 2 Authentication simplifies the usage of access tokens. The V2 auth will only generate an access token, not both access and refresh tokens. 
+Let’s start with a summary of the RDP's Version 2 Authentication Service (simply known as *V2 auth*, *oAuthClientCredentials* or *V2 Client Credentials*) service. It is based on the [OAuth 2.0 - Client Credentials Grant](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) and [Client Credentials with Private JWT Key](https://auth0.com/docs/secure/tokens/json-web-tokens) (*future release*) models. The Version 2 Authentication - Client Credentials simplifies the usage of access tokens. The V2 auth will only generate an access token, not both access and refresh tokens. 
 
 Once connected to the Refinitiv Real-Time Optimized with an access token, there is no need to renew the access Token. The login session will remain valid until the application disconnects or is disconnected from RTO. The application/API will only re-request an Access Token in the following scenarios:
 * When the consumer disconnects and goes into a reconnection state.
@@ -26,17 +26,27 @@ API URL endpoint: **http://api.refinitiv.com/auth/oauth2/v2/token** (please be n
 
 ### Request Parameters
 
-The Version 2 Authentication does not use the **Password Grant/Refresh Grant** model, all connections (initial connection and re-new) use a ```grant_type``` of **client_credentials** to get access token information.
+There are 2 types of Version 2 Authentication, the *Client Credentials Grant* and *Private JWT*. 
 
-The Version 2 Authentication requires the following access credential information in the HTTP request parameters:
+#### Client Credentials Grant
+
+The Version 2 Authentication - Client Credentials Grant model does not use the **Password Grant/Refresh Grant** model, all connections (initial connection and re-new) use a ```grant_type``` of **client_credentials** to get access token information.
+
+The client must have the Service Credentials information for the Version 2 Authentication - Client Credentials Grant model which is the information in the HTTP request parameters:
 - **grant_type**: The grant_type parameter must be set to **client_credentials**.
-- **client_id**:  The ```client_id``` is a public identifier for apps.
-- **client_secret**:  The ```client_secret``` is a secret known only to the application and the authorization server. It is essential to have the application’s password associated with the client ID.
+- **client_id**:  The ```client_id``` is a Service ID (public identifier for apps).
+- **client_secret**:  The ```client_secret``` is a secret known only to the application and the authorization server (Password).
 - **scope (optional)**: Limits the scope of the generated token so that the Access token is valid only for a specific data set
 
 **Note**: The ```V2 client_id``` **is not the same value** as the ```V1 client_id``` which is an ```app key``` of the [V1 - Password Grant Model](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/).
 
-That covers the overview of the RDP Authentication Service version 2.
+#### Client Credentials with Private JWT Key
+
+The Private JWT uses a JSON object as a signed token (either a private secret or a public/private key). In this model instead of the client application using a client_id + client_secret in the Client Credentials Model grant model, the client application (and their Security team) create a JWT, sends the public key to us, and uses the JWT to sign the assertion for authentication to RDP. 
+
+This Private JWT Key Model will be released in a future release. This article is focusing on the Client Credentials Grant model for now.
+
+That covers the overview of the RDP Authentication Service version 2. This article is now focusing on the Client Credentials Grant model only.
 
 ## <a id="prerequisite"></a>Prerequisite
 The Version 2 Authentication requires the following dependencies.
