@@ -1,4 +1,4 @@
-# Getting Started with Version 2 Authentication for Refinitiv Real-Time: Overview
+# Getting Started with Version 2 Authentication for Refinitiv Real-Time and Data Platform: Overview
 - version: 1.0
 - Last update: Feb 2023
 
@@ -7,9 +7,9 @@
 
 [Refinitiv Data Platform (RDP)](https://developers.refinitiv.com/en/api-catalog/refinitiv-data-platform/refinitiv-data-platform-apis) gives you seamless and holistic access to all of the Refinitiv content (whether real-time or non-real-time, analytics or alternative datasets), commingled with your content, enriching, integrating, and distributing the data through a single interface, delivered wherever you need it. As part of the Refinitiv Data Platform, the Refinitiv Real-Time - Optimized (RTO) gives you access to best-in-class Real-Time market data delivered in the cloud.  Refinitiv Real-Time - Optimized is a new delivery mechanism for RDP, using the AWS (Amazon Web Services) cloud.
 
-The RTO utilizes the RDP authentication service to obtain Access Token information. The RDP's Version 2 Authentication is a newly introduced authentication service for RTO. It is based on industry-standard [OAuth 2.0 - Client Credentials model](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) with a lot of updates, changes, and benefits over Version 1 Authentication for the RTO users. This document aims for helping developers to understand the Version 2 Authentication overview and workflow in general. 
+The RTO utilizes the RDP authentication service to obtain Access Token information. The RDP's Version 2 Authentication is a newly introduced authentication service for RTO. It is based on industry-standard [OAuth 2.0 - Client Credentials model](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) and [Client Credentials with Private JWT Key](https://auth0.com/docs/secure/tokens/json-web-tokens) (*future release*) models with a lot of updates, changes, and benefits over Version 1 Authentication for the RTO and RDP users. This document aims for helping developers to understand the Version 2 Authentication overview and workflow in general. 
 
-This article is focusing on the Refinitiv Real-Time - Optimized developers (a machine-to-machine case) who need to migrate their applications to the V2 only.
+This article is focusing on the Refinitiv Real-Time - Optimized or Refinitiv Data Platform APIs developers who need to migrate their applications to the V2 only.
 
 ## <a id="intro_rdp_auth"></a>Introduction to RDP Authentication Service
 
