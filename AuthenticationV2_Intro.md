@@ -1,6 +1,6 @@
 # Getting Started with Version 2 Authentication for Refinitiv Real-Time and Data Platform: Overview
-- version: 1.0
-- Last update: Feb 2023
+- version: 1.5
+- Last update: June 2023
 
 
 ## <a id="intro"></a>Introduction
