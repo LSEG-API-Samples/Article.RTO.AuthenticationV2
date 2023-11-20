@@ -93,7 +93,7 @@ The Version 2 Authentication HTTP workflow is like the following diagram.
 
 ### API URL
 
-The Version 2 Authentication endpoint URL is **http://api.refinitiv.com/auth/oauth2/v2/token**. 
+The Version 2 Authentication endpoint URL is **https://api.refinitiv.com/auth/oauth2/v2/token**. 
 
 Please be noticed that the API version is **v2** (the Authentication V1 uses **v1**).
 
