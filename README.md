@@ -22,7 +22,7 @@ This will include helping you create and entitle Version 2 Authentication IDs an
 To help you prepare for these changes, our developer advocates have written a series of articles explaining the differences between V1 and V2 authentication, and guidance to developers on how to implement V2 authentication for each supported API type. 
 
 Please do take time to read and understand the content relevant for your API type. 
-* [Getting started with Version 2 Authentication for Refinitiv Real-Time: Overview](AuthenticationV2_Intro.md) article
+* [Getting started with Version 2 Authentication for The Real-Time Optimized: Overview](AuthenticationV2_Intro.md) article
 * [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md) article
 * [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md) article
 * [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md) article
