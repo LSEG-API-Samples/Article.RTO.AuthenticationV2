@@ -1,6 +1,7 @@
 # Real-Time WebSocket API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide
-- version: 1.0
-- Last update: Feb 2023
+
+- version: 1.1
+- Last update: May 2024
 
 ## Introduction
 [Refinitiv Data Platform (RDP)](https://developers.refinitiv.com/en/api-catalog/refinitiv-data-platform/refinitiv-data-platform-apis) gives you seamless and holistic access to all of the Refinitiv content (whether real-time or non-real-time, analytics or alternative datasets), commingled with your content, enriching, integrating, and distributing the data through a single interface, delivered wherever you need it. As part of the Refinitiv Data Platform, the **Refinitiv Real-Time - Optimized (RTO)** gives you access to best-in-class Real-Time market data delivered in the cloud.  Refinitiv Real-Time - Optimized is a new delivery mechanism for RDP, using the AWS (Amazon Web Services) cloud.
@@ -10,6 +11,8 @@ The RTO utilizes the RDP authentication service to obtain Access Token informati
 The V2 Authentication is a new authentication service for Refinitiv Real-Time Optimized (RTO). This document aims for helping developers to understand how to use the WebSocket API with the V2 Authentication including updating the URL and body of the authentication request to be V2 Authentication's. Plus, handle the response returned and use the token from the response in the Service Discovery and Login request to RTO as usual. 
 
 For more detail about the V2 Authentication overview and concept, please check this [Getting Started with V2 Authentication](./AuthenticationV2_Intro.md) document.
+
+**Note**: The Version 2 Authentication is targeted for the Real-Time - Optimized (RTO with **ELEKTRON_DD** service) only. If you are using the **ERT_FD3_LF1**, you are using the Pricing Streaming (Wealth) product which currently supports Authentication Version 1 (**As of May 2024**).
 
 ## V2 Authentication Summaries
 

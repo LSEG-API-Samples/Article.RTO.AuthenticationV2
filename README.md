@@ -1,12 +1,15 @@
-# Changes to Customer Access and Identity Management: Refinitiv Real-Time - Optimized 
-- version: 1.0
-- Last update: Feb 2023
+# Changes to Customer Access and Identity Management: The Real-Time - Optimized 
+
+- version: 1.1
+- Last update: May 2024
 
 ## <a id="intro"></a>Background
 
 Refinitiv have been significantly investing in our authentication services to provide you with more resilient, reliable, and secure service to the products and solutions you use.
 
 Security feature improvements made to the Customer Identity and Access Management (CIAM) capability will benefit a broad range of products, including Real-Time – Optimized.
+
+**Note**: The Version 2 Authentication is targeted for the Real-Time - Optimized (RTO with **ELEKTRON_DD** service) only. If you are using the **ERT_FD3_LF1**, you are using the Pricing Streaming (Wealth) product which currently supports Authentication Version 1 (**As of May 2024**).
 
 ## <a id="next_steps"></a>Next Steps
 

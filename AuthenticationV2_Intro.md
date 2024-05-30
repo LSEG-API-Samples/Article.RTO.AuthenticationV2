@@ -1,6 +1,7 @@
-# Getting Started with Version 2 Authentication for Refinitiv Real-Time and Data Platform: Overview
-- version: 1.6
-- Last update: April 2024
+# Getting Started with Version 2 Authentication for the Real-Time Optimized: Overview
+
+- version: 1.7
+- Last update: May 2024
 
 
 ## <a id="intro"></a>Introduction
@@ -9,7 +10,7 @@
 
 The RTO utilizes the RDP authentication service to obtain Access Token information. The RDP's Version 2 Authentication is a newly introduced authentication service for RTO. It is based on industry-standard [OAuth 2.0 - Client Credentials model](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) and [Client Credentials with Private JWT Key](https://auth0.com/docs/secure/tokens/json-web-tokens) (*future release*) models with a lot of updates, changes, and benefits over Version 1 Authentication for the RTO users. This document aims for helping developers to understand the Version 2 Authentication overview and workflow in general. 
 
-The Version 2 Authentication is targeted for the Real-Time - Optimized (RTO with **ELEKTRON_DD** service) only (As of April 2024). 
+**Note**: The Version 2 Authentication is targeted for the Real-Time - Optimized (RTO with **ELEKTRON_DD** service) only. If you are using the **ERT_FD3_LF1**, you are using the Pricing Streaming (Wealth) product which currently supports Authentication Version 1 (**As of May 2024**).
 
 This article is focusing on the Real-Time SDK or WebSocket API developers who need to migrate their RTO applications to the V2.
 
