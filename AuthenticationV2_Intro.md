@@ -1,16 +1,19 @@
 # Getting Started with Version 2 Authentication for the Real-Time Optimized: Overview
 
-- version: 1.7
-- Last update: May 2024
+- version: 2.0
+- Last update: April 2025
+
+**Important Note**: 
+
+- If you are using the Wealth solution (*Pricing Streaming Optimized Service* or *Pricing Streaming Service*), the products currently support Authentication Version 1 only (**As of May 2024**). Please contact your LSEG representative to verify if you are using Wealth or RTO solution.
+- The CIAM is targeted the RTO customers only, not the Wealth solution (Pricing Streaming Optimized Service or Pricing Streaming Service) and the RDP APIs HTTP services.
 
 
 ## <a id="intro"></a>Introduction
 
-[Refinitiv Data Platform (RDP)](https://developers.refinitiv.com/en/api-catalog/refinitiv-data-platform/refinitiv-data-platform-apis) gives you seamless and holistic access to all of the Refinitiv content (whether real-time or non-real-time, analytics or alternative datasets), commingled with your content, enriching, integrating, and distributing the data through a single interface, delivered wherever you need it. As part of the Refinitiv Data Platform, the Refinitiv Real-Time - Optimized (RTO) gives you access to best-in-class Real-Time market data delivered in the cloud.  Refinitiv Real-Time - Optimized is a new delivery mechanism for RDP, using the AWS (Amazon Web Services) cloud.
+[Delivery Platform (aka Data Plaform or RDP)](https://developers.lseg.com/en/api-catalog/refinitiv-data-platform/refinitiv-data-platform-apis) gives you seamless and holistic access to all of the LSEG content (whether real-time or non-real-time, analytics or alternative datasets), commingled with your content, enriching, integrating, and distributing the data through a single interface, delivered wherever you need it. As part of the  Data Platform, the Real-Time - Optimized (RTO) gives you access to best-in-class Real-Time market data delivered in the cloud.  The Real-Time - Optimized is a new delivery mechanism for RDP, using the AWS (Amazon Web Services) cloud.
 
 The RTO utilizes the RDP authentication service to obtain Access Token information. The RDP's Version 2 Authentication is a newly introduced authentication service for RTO. It is based on industry-standard [OAuth 2.0 - Client Credentials model](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) and [Client Credentials with Private JWT Key](https://auth0.com/docs/secure/tokens/json-web-tokens) (*future release*) models with a lot of updates, changes, and benefits over Version 1 Authentication for the RTO users. This document aims for helping developers to understand the Version 2 Authentication overview and workflow in general. 
-
-**Note**: The Version 2 Authentication is targeted for the Real-Time - Optimized (RTO with **ELEKTRON_DD** service) only. If you are using the **ERT_FD3_LF1**, you are using the Pricing Streaming (Wealth) product which currently supports Authentication Version 1 (**As of May 2024**).
 
 This article is focusing on the Real-Time SDK or WebSocket API developers who need to migrate their RTO applications to the V2.
 
@@ -18,7 +21,7 @@ This article is focusing on the Real-Time SDK or WebSocket API developers who ne
 
 The first step of an application workflow is to get a token from RDP Authentication Service, which will allow access to the protected resource, i.e. data REST API, streaming services, etc. Once a valid token is received, this token is sent with every REST API call to get data. For the Real-Time Streaming service, this token must be sent when the application logins to the streaming server on the cloud.
 
-Refinitiv Data Platform (RDP) entitlement check is based on OAuth 2.0 specification. The RDP's Version 1 Authentication service uses the [Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) and [Refresh Token Grant](https://www.oauth.com/oauth2-servers/access-tokens/refreshing-access-tokens/) models to get the first set of tokens and renew subsequent tokens respectively. 
+The Data Platform (RDP) entitlement check is based on OAuth 2.0 specification. The RDP's Version 1 Authentication service uses the [Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) and [Refresh Token Grant](https://www.oauth.com/oauth2-servers/access-tokens/refreshing-access-tokens/) models to get the first set of tokens and renew subsequent tokens respectively.
 
 On the other hand, the RDP's Version 2 Authentication (or simply known as *V2 auth*, *oAuthClientCredentials* or *V2 Client Credentials*) service uses the oAuth2.0 [Client Credentials Grant](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) and [Client Credentials with Private JWT Key](https://auth0.com/docs/secure/tokens/json-web-tokens) (*future release*) models for authentication. So, what those models are?
 
@@ -112,7 +115,7 @@ Version 2 Authentication supports the *application/x-www-form-urlencoded* HTTP C
 
 The request parameters of V1 and V2 are different. The Version 2 Authentication requires a Service account consisting of client ID (*not the App Key*) and client Secret credential information for the request parameter.
 
-When you log into the Refinitiv Data Platform (either initial connection or renewal), you must use a ```grant_type``` of **client_credentials** to get access token information.
+When you log into the Data Platform (either initial connection or renewal), you must use a ```grant_type``` of **client_credentials** to get access token information.
 
 The Version 2 Authentication - Client Credentials Model requires the following access credential information in the HTTP request parameters:
 - **grant_type**: The grant_type parameter must be set to **client_credentials**.
@@ -167,11 +170,11 @@ You see that the Version 1 HTTP operation workflow is more complex than the Vers
 
 That’s all I have to say about the RDP Authentication Service Version 2 HTTP workflow.
 
-## <a id="service_discovery"></a>Refinitiv Real-Time Service Discovery
+## <a id="service_discovery"></a>Real-Time Optimized Service Discovery
 
 That brings us to the next RDP service, the Service Discovery.
 
-After you obtain an authentication token, depending on its authorization and scope, you can use it to retrieve content from the RDP and connect to the RTO Streaming server. To connect to the RTO Streaming server, one can either specify an endpoint (VIP) or discover the list of endpoints (VIP) using a Refinitiv Data Platform service called *Service Discovery*.
+After you obtain an authentication token, depending on its authorization and scope, you can use it to retrieve content from the RDP and connect to the RTO Streaming server. To connect to the RTO Streaming server, one can either specify an endpoint (VIP) or discover the list of endpoints (VIP) using a Data Platform service called *Service Discovery*.
 
 To retrieve VIPs, an application must call the URL **https://api.refinitiv.com/streaming/pricing/v1/** API endpoint with the access token from the RDP Authentication Service in the request message header. The Service Discovery supports both V1 and V2 access tokens with the same HTTP GET request message.
 
@@ -215,7 +218,7 @@ Summary:
 
 ![figure-3](images/03_auth_v2_streaming.png "Version 2 Authentication Streaming Workflow")
 
-If you are using the Refinitiv Real-Time SDK, the API automatically handles this token renewal process for you. However, the Version 2 Authentication streaming workflow is much simpler for WebSocket API developers because the application does not need to renew the access token as long as its streaming channel is active.
+If you are using the Real-Time SDK, the API automatically handles this token renewal process for you. However, the Version 2 Authentication streaming workflow is much simpler for WebSocket API developers because the application does not need to renew the access token as long as its streaming channel is active.
 
 ### Comparing with the Version 1 Authentication
 
@@ -230,11 +233,11 @@ The RTO Version 2 Authentication requires the following dependencies.
 3. WebSocket API Developers: The latest version of the WebSocket API examples.
 4. Internet connection.
 
-Please contact your Refinitiv representative to help you to access the RTO account and services. 
+Please contact your LSEG representative to help you to access the RTO account and services. 
 
-## <a id="v2_rtsdk"></a>How to use Version 2 Authentication with Refinitiv Real-Time SDK
+## <a id="v2_rtsdk"></a>How to use Version 2 Authentication with Real-Time SDK
 
-Now let me turn to using the Version 2 Authentication with the Refinitiv Real-Time SDK (RTSDK) developers. The RTSDK [C/C++](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-cc) and [Java](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-java) editions already support the Version 2 Authentication since version 2.0.5 (EMA/ETA API version 3.6.5). 
+Now let me turn to using the Version 2 Authentication with the Real-Time SDK (RTSDK) developers. The RTSDK [C/C++](https://developers.lseg.com/en/api-catalog/real-time-opnsrc/rt-sdk-cc), [Java](https://developers.lseg.com/en/api-catalog/real-time-opnsrc/rt-sdk-java) and [C#](https://developers.lseg.com/en/api-catalog/real-time-opnsrc/rt-sdk-csharp) editions already support the Version 2 Authentication since version 2.0.5 (EMA/ETA API version 3.6.5). 
 
 This article is based on RTSDK version 2.0.7.L1 (EMA/ETA API version 3.6.7).
 
@@ -249,8 +252,10 @@ The EMA API automatically operates the HTTP and streaming connections workflow f
 The rest of the code logic such as subscription logic, incoming message callbacks, etc is the same.
 
 For more detail about using the Version 2 Authentication with the Enterprise Message API, please check the following documents:
-* [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md)
-* [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md)
+* [EMA Java API: Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md)
+* [EMA C++ API: Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md)
+
+**Note**: The EMA C# API supports only Version 2 Authentication by default.
 
 #### EMA API Version 2 Authentication - Quick Start
 
@@ -280,8 +285,10 @@ ETA developers need to pass the V2 client_id and client_secret credentials to th
 The rest of the code logic such as subscription logic, incoming message callbacks, etc is the same.
 
 For more detail about using the Version 2 Authentication with the Enterprise Transport API, please check the following ETA articles 
-* [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md)
-* [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md)
+* [ETA C: Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md)
+* [ETA Java: Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md)
+
+**Note**: The ETA C# API supports only Version 2 Authentication by default.
 
 #### ETA API Version 2 Authentication - Quick Start
 
@@ -311,7 +318,7 @@ That covers the RTSDK quick start with the Version 2 Authentication.
 
 ## <a id="v2_ws"></a>How to use the WebSocket API with Version 2 Authentication
 
-That brings us to the WebSocket API. The [Websocket API for Pricing Streaming and Real-Time Services](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api) (aka WebSocket API) supports the Version 2 Authentication workflow. However, the WebSocket API developers need to operate the Version 2 Authentication HTTP and streaming connections manually. The example code that demonstrates the Version 2 Authentication workflow are the ```*RDPGW_ClientCredAuth*``` examples as follows:
+That brings us to the WebSocket API. The [Real-Time Websocket API](https://developers.lseg.com/en/api-catalog/real-time-opnsrc/websocket-api) (aka WebSocket API) supports the Version 2 Authentication workflow. However, the WebSocket API developers need to operate the Version 2 Authentication HTTP and streaming connections manually. The example code that demonstrates the Version 2 Authentication workflow are the **RDPGW_ClientCredAuth** examples as follows:
 * ```market_price_rdpgw_client_cred_auth.py``` for Python.
 * ```MarketPriceRdpGwClientCredAuthExample.cs``` for C#
 * ```MarketPriceRdpGwClientCredAuth.java``` for Java
@@ -371,44 +378,36 @@ That’s all I have to say about the WebSocket API quick start with the Version 
 
 ## <a id="conclusion"></a>Conclusion and Next Steps
 
-That brings me to the end of this article. The RDP Authentication Service version 2 brings a lot of improvements to the Refinitiv Real-Time - Optimized (RTO) applications. The V2 simplifies the overall authentication process with a single access token and a long token expiration time. The major advantage for real-time users is the application/API does not need to renew the access token as long as the streaming connection is active.
+That brings me to the end of this article. The RDP Authentication Service version 2 brings a lot of improvements to the Real-Time - Optimized (RTO) applications. The V2 simplifies the overall authentication process with a single access token and a long token expiration time. The major advantage for real-time users is the application/API does not need to renew the access token as long as the streaming connection is active.
 
-If you are the Refinitiv Real-Time SDK developer, the API automatically handles the new workflow for you. You just need to update the application source code to use newly introduced Version 2 Authentication methods/interfaces for connecting to the RTO with the V2 client_id and client_secret credential. Please see more detail about using the RTSDK with the Version 2 Authentication from the following resources:
-- [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md) article
-- [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md) article
-- [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md) article
-- [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md) article
+If you are the Renitiv Real-Time SDK developer, the API automatically handles the new workflow for you. You just need to update the application source code to use newly introduced Version 2 Authentication methods/interfaces for connecting to the RTO with the V2 client_id and client_secret credential. Please see more detail about using the RTSDK with the Version 2 Authentication from the following resources:
+- [EMA Java API: Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md) article
+- [EMA C++ API: Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md) article
+- [ETA C: Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md) article
+- [ETA Java: Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md) article
 
 If you are the WebSocket API developer, even though you need to manually update the application source code to use new V2 HTTP and WebSocket connections, the V2 workflow is simple to operate when compared to the Authentication V1.  Please see more detail about using the WebSocket API with the Version 2 Authentication from the following resource:
-- [Real-Time WebSocket API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](WS_Migration_V2.md)
+- [Real-Time WebSocket API: The Real-Time Optimized Version 2 Authentication Migration Guide](WS_Migration_V2.md)
 
 ## <a id="references"></a>References
 
 For further details, please check out the following resources:
-* [Refinitiv Real-Time SDK Family](https://developers.refinitiv.com/en/use-cases-catalog/refinitiv-real-time) page.
-* [Refinitiv Real-Time SDK C/C++ page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-cc) on the [Refinitiv Developer Community](https://developers.refinitiv.com/) website.
-* [Refinitiv Real-Time SDK Java page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/rt-sdk-java).
-* [Refinitiv WebSocket API page](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api).
-* [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_C_Migration_V2.md)
-* [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./ETA_Java_Migration_V2.md)
-* [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Java_Migration_V2.md)
-* [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](./EMA_Cpp_Migration_V2.md)
-* [Real-Time WebSocket API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](WS_Migration_V2.md)
-* [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) page.
-* [OAuth 2.0 - Access Token Response](https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/) page.
-* [OAuth 2.0 - Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) page.
-* [OAuth 2.0 - Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) page.
 
-For any questions related to this article or the RTSDK page, please use the Developer Community [Q&A Forum](https://community.developers.refinitiv.com/).
+- [Changes to Customer Access and Identity Management: Real-Time - Optimized ](https://developers.lseg.com/en/article-catalog/article/changes-to-customer-access-and-identity-management--refinitiv-re) article
+- [Getting Started with Version 2 Authentication](https://developers.lseg.com/en/article-catalog/article/getting-started-with-version-2-authentication-for-refinitiv-real)
+- [Real-Time Market Data APIs & Distribution Family](https://developers.lseg.com/en/use-cases-catalog/real-time) page.
+- [Real-Time SDK C/C++ page](https://developers.lseg.com/en/api-catalog/real-time-opnsrc/rt-sdk-cc).
+- [Real-Time SDK C# page](https://developers.lseg.com/en/api-catalog/real-time-opnsrc/rt-sdk-csharp).
+- [Real-Time SDK Java page](https://developers.lseg.com/en/api-catalog/real-time-opnsrc/rt-sdk-java).
+- [WebSocket API page](https://developers.lseg.com/en/api-catalog/real-time-opnsrc/websocket-api).
+- [ETA C: Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.lseg.com/en/article-catalog/article/eta-c--refinitiv-real-time-optimized-authentication-version-2-mi) article.
+- [ETA Java: Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.lseg.com/en/article-catalog/article/eta-java--refinitiv-real-time-optimized-authentication-version-2) article.
+- [EMA C++ API: Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.lseg.com/en/article-catalog/article/ema-c-api-real-time-optimized-version-2-authentication-migration-guide) article.
+- [EMA Java API: Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.lseg.com/en/article-catalog/article/ema-java-api-real-time-optimized-version-2-authentication-migration-guide) article.
+- [Real-Time WebSocket API: The Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.lseg.com/en/article-catalog/article/webSocket-api-rto-v2-authentication-migration-guide) article.
+- [OAuth 2.0 - Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) page.
+- [OAuth 2.0 - Access Token Response](https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/) page.
+- [OAuth 2.0 - Password Grant](https://www.oauth.com/oauth2-servers/access-tokens/password-grant/) page.
+- [OAuth 2.0 - Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) page.
 
-## <a id="dev_articles"></a> Developer Articles
-
-The following content is also available on the [Refinitiv Developer Community](https://developers.refinitiv.com/) website.
-
-* [Changes to Customer Access and Identity Management: Refinitiv Real-Time - Optimized ](https://developers.refinitiv.com/en/article-catalog/article/changes-to-customer-access-and-identity-management--refinitiv-re) article
-* [Getting Started with Version 2 Authentication](https://developers.refinitiv.com/en/article-catalog/article/getting-started-with-version-2-authentication-for-refinitiv-real)
-* [ETA C: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/eta-c--refinitiv-real-time-optimized-authentication-version-2-mi) article
-* [ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/eta-java--refinitiv-real-time-optimized-authentication-version-2) article
-* [EMA C++ API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/ema-c-api-real-time-optimized-version-2-authentication-migration-guide) article
-* [EMA Java API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/ema-java-api-real-time-optimized-version-2-authentication-migration-guide) article
-* [Real-Time WebSocket API: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide](https://developers.refinitiv.com/en/article-catalog/article/webSocket-api-rto-v2-authentication-migration-guide) article
+For any questions related to this article or the RTSDK/WebSocket API, please use the Developer Community [Q&A Forum](https://community.developers.refinitiv.com/).

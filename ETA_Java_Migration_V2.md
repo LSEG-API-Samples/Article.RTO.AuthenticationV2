@@ -1,18 +1,18 @@
-# ETA Java: Refinitiv Real-Time Optimized Version 2 Authentication Migration Guide
+# ETA Java: Real-Time Optimized Version 2 Authentication Migration Guide
 - version: 1.0
 - Last update: Feb 2023
 
-Real-Time Optimized (RTO) is Refinitiv conflated real-time content, hosted in the public cloud. It provides fast and simple access to our unparalleled content from hundreds of exchanges and OTC markets around the world.  
+Real-Time Optimized (RTO) is conflated real-time content, hosted in the public cloud. It provides fast and simple access to our unparalleled content from hundreds of exchanges and OTC markets around the world.  
 
-To connect to Refinitiv Real-Time Optimized, Refinitiv Real-Time applications need to send credentials to the authentication service on the Refinitiv Data Platform (RDP) to get an access token and a refresh token. An access token is a short live token used to log in to the Refinitiv Real-Time Optimized server while a refresh token is a long live token used to renew an access token. Therefore, the application needs to periodically use a refresh token to renew an access token and then use a new access token to re-login to the Refinitiv Real-Time Optimized server. Otherwise, the server will cut a connection when an access token expired. Moreover, a credential can’t be used simultaneously because a refresh token will be invalidated when the same credential is used by other applications. Then, the application with the invalid refresh token can’t renew an access token. 
+To connect to Real-Time Optimized, Real-Time applications need to send credentials to the authentication service on the Data Platform (RDP) to get an access token and a refresh token. An access token is a short live token used to log in to the Real-Time Optimized server while a refresh token is a long live token used to renew an access token. Therefore, the application needs to periodically use a refresh token to renew an access token and then use a new access token to re-login to the Real-Time Optimized server. Otherwise, the server will cut a connection when an access token expired. Moreover, a credential can’t be used simultaneously because a refresh token will be invalidated when the same credential is used by other applications. Then, the application with the invalid refresh token can’t renew an access token. 
 
-Fortunately, the new RDP Version 2 Authentication (also known as *V2 auth*, *oAuthClientCredentials* or *V2 Client Credentials*) service simplifies the usage of access tokens. RDP Version 2 Authentication will only generate an access token, not both access and refresh tokens. Once connected to the Refinitiv Real-Time Optimized with an access token, there is no need to renew the access Token. The login session will remain valid until the application disconnects or is disconnected from RTO.
+Fortunately, the new RDP Version 2 Authentication (also known as *V2 auth*, *oAuthClientCredentials* or *V2 Client Credentials*) service simplifies the usage of access tokens. RDP Version 2 Authentication will only generate an access token, not both access and refresh tokens. Once connected to the Real-Time Optimized with an access token, there is no need to renew the access Token. The login session will remain valid until the application disconnects or is disconnected from RTO.
 
 This article provides guidelines to migrate the ETA Java consumer applications to use RDP Version 2 Authentication. RTSDK 2.0.5.L1 (ETA 3.6.5.L1) and above support RDP Version 2 Authentication.
 
 ## RDP Version 2 Authentication Code Migration
 
-ETA Java applications use the Enterprise Transport API reactor to connect to Refinitiv Real-Time Optimized. The Enterprise Transport API reactor is a connection management and event processing component that can significantly reduce the amount of code an application must write.  The following parts in the code must be modified to migrate the ETA Java applications to use RDP Version 2 Authentication. 
+ETA Java applications use the Enterprise Transport API reactor to connect to Real-Time Optimized. The Enterprise Transport API reactor is a connection management and event processing component that can significantly reduce the amount of code an application must write.  The following parts in the code must be modified to migrate the ETA Java applications to use RDP Version 2 Authentication. 
 
 ### 1. Setting RDP Version 2 Authentication credentials in the OMM consumer role
 
@@ -43,7 +43,7 @@ Then, the **ReactorOAuthCredential** is assigned to the *reactorOAuthCredential 
 
 If the application uses the service discovery, this modification is required. 
 
-The service discovery is used to query service endpoints from the Refinitiv Real-Time Optimized service. It also requires RDP credentials to connect to the service discovery endpoint. To migrate to RDP Version 2 Authentication, the client ID and client secret must be set in the **ReactorServiceDiscoveryOptions** instance. 
+The service discovery is used to query service endpoints from the Real-Time Optimized service. It also requires RDP credentials to connect to the service discovery endpoint. To migrate to RDP Version 2 Authentication, the client ID and client secret must be set in the **ReactorServiceDiscoveryOptions** instance. 
 
 ![](images/etaj_servicedis.png)
 
@@ -120,7 +120,7 @@ Reactor reactor;
 reactor = ReactorFactory.createReactor(reactorOptions, errorInfo);
 
 ```
-For more information, please refer to the **com.refinitiv.eta.valueadd.examples.consumer**, and **com.refinitiv.eta.valueadd.examples.watchlistconsumer** examples in the Refinitiv Real-Time SDK Java package. 
+For more information, please refer to the **com.refinitiv.eta.valueadd.examples.consumer**, and **com.refinitiv.eta.valueadd.examples.watchlistconsumer** examples in the Real-Time SDK Java package. 
 
 ## Summary
-RDP Version 2 Authentication simplifies the usage of access tokens when connecting to Refinitiv Real-Time Optimized. It uses a client ID, and client secret instead of a username, password, and client ID (application key). The applications don’t need to renew access tokens at every specific interval. The access token used by the application will remain valid until the application disconnects or is disconnected from Refinitiv Real-Time Optimized. To migrate applications to use RDP Version 2 Authentication, the code that relates to RDP Authentication must be modified including setting a client ID and client secret in **ReactorOAuthCredential**, **ReactorServiceDiscoveryOptions**, and **ReactorOAuthCredentialRenewal**, and changing the RDP Version 2 Authentication endpoint in **ReactorOptions**. 
+RDP Version 2 Authentication simplifies the usage of access tokens when connecting to Real-Time Optimized. It uses a client ID, and client secret instead of a username, password, and client ID (application key). The applications don’t need to renew access tokens at every specific interval. The access token used by the application will remain valid until the application disconnects or is disconnected from Real-Time Optimized. To migrate applications to use RDP Version 2 Authentication, the code that relates to RDP Authentication must be modified including setting a client ID and client secret in **ReactorOAuthCredential**, **ReactorServiceDiscoveryOptions**, and **ReactorOAuthCredentialRenewal**, and changing the RDP Version 2 Authentication endpoint in **ReactorOptions**. 
