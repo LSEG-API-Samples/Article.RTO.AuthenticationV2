@@ -8,7 +8,7 @@
 
 The RTO utilizes the RDP authentication service to obtain Access Token information. The RDP's Version 2 Authentication is a newly introduced authentication service for RTO. It is based on the industry-standard [OAuth 2.0 - Client Credentials model](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) and [Client Credentials with Private JWT Key](https://auth0.com/docs/secure/tokens/json-web-tokens) (*future release*) models with a lot of updates, changes, and benefits over Version 1 Authentication for the RTO users This document provides guidelines to migrate the EMA C++ consumer applications to use RDP Version 2 Authentication. 
 
-For more detail about the Version 2 Authentication overview and concept, please check this [Getting Started with Version 2 Authentication](https://github.com/LSEG-API-Samples/Article.RTO.AuthenticationV2) document.
+For more detail about the Version 2 Authentication overview and concept, please check this [Getting Started with Version 2 Authentication](https://github.com/LSEG-API-Samples/Article.RTO.AuthenticationV2) document and [article](https://developers.lseg.com/en/article-catalog/article/getting-started-with-version-2-authentication-for-refinitiv-real).
 
 This article is based on RTSDK C++ version 2.0.7.L1 (EMA/ETA API version 3.6.7).
 

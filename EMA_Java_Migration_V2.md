@@ -4,11 +4,13 @@
 
 ## <a id="intro"></a>Introduction
 
-[Delivery Platform (aka Data Plaform or RDP)](https://developers.lseg.com/en/api-catalog/refinitiv-data-platform/refinitiv-data-platform-apis) gives you seamless and holistic access to all of the LSEG content (whether real-time or non-real-time, analytics or alternative datasets), commingled with your content, enriching, integrating, and distributing the data through a single interface, delivered wherever you need it. As part of the  Data Platform, the Real-Time - Optimized (RTO) gives you access to best-in-class Real-Time market data delivered in the cloud.  The Real-Time - Optimized is a new delivery mechanism for RDP, using the AWS (Amazon Web Services) cloud.
+**Last Updated**: June 2025
 
-The RTO utilizes the RDP authentication service to obtain Access Token information. The RDP's Version 2 Authentication is a newly introduced authentication service for RTO. It is based on the industry-standard [OAuth 2.0 - Client Credentials model](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) and [Client Credentials with Private JWT Key](https://auth0.com/docs/secure/tokens/json-web-tokens) (*future release*) models with a lot of updates, changes, and benefits over Version 1 Authentication for the RTO users This document provides guidelines to migrate the EMA C++ consumer applications to use RDP Version 2 Authentication. 
+The [Delivery Platform APIs](https://developers.lseg.com/en/api-catalog/refinitiv-data-platform/refinitiv-data-platform-apis) (aka Data Platform, RDP) gives you seamless and holistic access to all of the LSEG content (whether real-time or non-real-time, analytics or alternative datasets), commingled with your content, enriching, integrating, and distributing the data through a single interface, delivered wherever you need it. As part of the Data Platform, the Real-Time - Optimized (RTO) gives you access to best-in-class Real-Time market data delivered in the cloud. The Real-Time - Optimized is a new delivery mechanism for RDP, using the AWS (Amazon Web Services) cloud.
 
-For more detail about the Version 2 Authentication overview and concept, please check this [Getting Started with Version 2 Authentication](https://github.com/LSEG-API-Samples/Article.RTO.AuthenticationV2) document.
+The RTO utilizes the RDP authentication service to obtain Access Token information. The RDP's Version 2 Authentication is a newly introduced authentication service for RTO. It is based on the industry-standard [OAuth 2.0 - Client Credentials model](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) and [Client Credentials with Private JWT Key](https://auth0.com/docs/secure/tokens/json-web-tokens) (*future release*) models with a lot of updates, changes, and benefits over Version 1 Authentication for the RTO users This document provides guidelines to migrate the EMA C++ consumer applications to use RDP Version 2 Authentication.
+
+For more detail about the Version 2 Authentication overview and concept, please check this [Getting Started with Version 2 Authentication](https://github.com/LSEG-API-Samples/Article.RTO.AuthenticationV2) document and [article](https://developers.lseg.com/en/article-catalog/article/getting-started-with-version-2-authentication-for-refinitiv-real).
 
 This article is based on RTSDK Java version 2.0.7.L1 (EMA/ETA API version 3.6.7).
 
@@ -16,7 +18,7 @@ This article is based on RTSDK Java version 2.0.7.L1 (EMA/ETA API version 3.6.7)
 
 Let’s start with a summary of the RDP's Version 2 Authentication Service (simply known as *V2 auth*, *oAuthClientCredentials* or *V2 Client Credentials*) service. It is based on the [OAuth 2.0 - Client Credentials Grant](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/) and [Client Credentials with Private JWT Key](https://auth0.com/docs/secure/tokens/json-web-tokens) (*future release*) models. The Version 2 Authentication - Client Credentials simplifies the usage of access tokens. The V2 auth will only generate an access token, not both access and refresh tokens. 
 
-Once connected to the Refinitiv Real-Time Optimized with an access token, there is no need to renew the access Token. The login session will remain valid until the application disconnects or is disconnected from RTO. The application/API will only re-request an Access Token in the following scenarios:
+Once connected to the Real-Time Optimized with an access token, there is no need to renew the access Token. The login session will remain valid until the application disconnects or is disconnected from RTO. The application/API will only re-request an Access Token in the following scenarios:
 * When the consumer disconnects and goes into a reconnection state.
 * If the Channel stays in reconnection long enough to get close to the expiry time of the Access Token.
 
